@@ -1,6 +1,7 @@
 import React from 'react';
-import Layout from './components/common/Layout';
 import { Route, Routes } from 'react-router';
+import Layout from './components/common/Layout';
+import FormPage from "./components/pages/FormPage"
 import "./assets/style.scss"
 import './App.css';
 
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/DepositFM-Task' element={<Layout />}>
-          <Route index />
+          <Route index element={<FormPage />} />
         </Route>
       </Routes>
     </div>
