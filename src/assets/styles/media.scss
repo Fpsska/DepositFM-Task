@@ -1,0 +1,48 @@
+@media screen and (max-width: 1366px) {
+    .form__wrapper,
+    .footer__wrapper,
+    .palette-page__wrapper {
+        max-width: 50%;
+    }
+    .palette__wrapper {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .App {
+        padding: 22px;
+    }
+    .page {
+        padding: 20px 30px;
+    }
+    .nav__menu {
+        justify-content: center;
+    }
+    .form__wrapper,
+    .footer__wrapper,
+    .palette-page__wrapper {
+        max-width: 100%;
+    }
+    .palette__wrapper {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .palette-page__wrapper {
+        max-width: 100%;
+    }
+    .palette__wrapper {
+        padding: 0 10px;
+    }
+    .palette__template {
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .palette__wrapper {
+        justify-content: center;
+    }
+}

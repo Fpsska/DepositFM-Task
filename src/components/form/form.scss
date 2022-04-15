@@ -2,7 +2,7 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        max-width: 27%;
+        max-width: 27.5%;
     }
     &__field {
         width: 100%;
@@ -10,14 +10,14 @@
         flex-direction: column;
         justify-content: center;
         &:not(:last-child) {
-            margin: 0 0 20px 0;
+            margin: 0 0 14px 0;
         }
         :not(:last-child) {
             margin: 0 0 5px 0;
         }
     }
     .form__field.file {
-        margin: 0 0 50px 0;
+        margin: 0 0 48px 0;
     }
     &__label {
         padding: 0 0 0 15px;
@@ -27,7 +27,7 @@
         color: rgba(235, 235, 245, 0.6);
     }
     &__input {
-        padding: 8px 12px;
+        padding: 10px 12px;
         border-radius: 10px;
         background: rgba(118, 118, 128, 0.24);
         border: none;

@@ -1,6 +1,6 @@
 .footer {
     &__wrapper {
-        max-width: 27%;
+        max-width: 27.5%;
     }
 }
 
@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-height: 145px;
     :not(:last-child) {
         margin: 0 0 5px 0;
     }
