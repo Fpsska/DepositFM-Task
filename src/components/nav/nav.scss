@@ -1,0 +1,18 @@
+.nav {
+    &__menu {
+        display: flex;
+        :not(:last-child) {
+            margin: 0 40px 0 0;
+        }
+    }
+    &__link {
+        color: #fff;
+        font-size: 17px;
+        line-height: 22px;
+        font-weight: 400;
+    }
+}
+
+.nav__link.active {
+    text-decoration: underline;
+}
