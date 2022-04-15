@@ -1,7 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import NavLink from "./NavLink";
 import "./nav.scss"
-import { useSelector } from "react-redux";
+
 
 const Nav = () => {
     const { navLinks } = useSelector(state => state.navReducer)
@@ -13,8 +14,10 @@ const Nav = () => {
                     return (
                         <NavLink
                             key={item.id}
+                            id={item.id}
                             text={item.text}
                             link={item.link}
+                            isActive={item.isActive}
                         />
                     )
                 })}
