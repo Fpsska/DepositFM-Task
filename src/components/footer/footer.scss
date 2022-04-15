@@ -1,0 +1,30 @@
+.footer {
+    &__wrapper {
+        max-width: 30%;
+    }
+}
+
+.response {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    :not(:last-child) {
+        margin: 0 0 5px 0;
+    }
+    &__text { 
+        padding: 0 0 0 15px; 
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 22px;
+        color: rgba(235, 235, 245, 0.6);
+    }
+    &__input {
+        background: rgba(118, 118, 128, 0.24);
+        border-radius: 10px;
+        color: #fff;
+        padding: 10px;
+        resize: none;
+        outline: none;
+        border: none;
+    }
+}
