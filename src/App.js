@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router';
 import Layout from './components/common/Layout';
 import FormPage from "./components/pages/FormPage"
-import PalettePage from './components/pages/PalettePage';
+import PalettePage from './components/pages/palettePage/PalettePage';
 import "./assets/style.scss"
 import './App.css';
 

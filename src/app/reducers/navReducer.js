@@ -1,4 +1,4 @@
-import { ACTION_SET_ACTIVE_STATUS } from "../actions/navActions"
+import { ACTION_SET_ACTIVE_STATUS, ACTION_SET_FORM_PAGE_STATUS } from "../actions/navActions"
 // /. imports
 
 const initialState = {
@@ -14,8 +14,9 @@ const initialState = {
             text: "Palette",
             link: "Palette",
             isActive: false
-        },
-    ]
+        }
+    ],
+    isFormPage: true
 };
 
 // /. state
@@ -38,6 +39,11 @@ const navReducer = (state = initialState, action) => {
                         }
                     }
                 })
+            }
+        case ACTION_SET_FORM_PAGE_STATUS:
+            return {
+                ...state,
+                isFormPage: action.payload
             }
         default:
             return state;

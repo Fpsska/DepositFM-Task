@@ -2,7 +2,7 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        max-width: 30%;
+        max-width: 27%;
     }
     &__field {
         width: 100%;
@@ -40,11 +40,9 @@
             line-height: 22px;
         }
     }
-    &__button {
+    &__button { // +mixin
         background: #007aff;
         border-radius: 8px;
-        outline: none;
-        border: none;
         color: #fff;
         font-size: 17px;
         font-weight: 400;
