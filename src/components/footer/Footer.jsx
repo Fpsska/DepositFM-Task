@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import "./footer.scss"
 
 const Footer = () => {
-    const { isFormPage } = useSelector(state => state.navReducer)
+    const { isFormPage, setFetchErrorMessage } = useSelector(state => state.navReducer)
     // 
     return (
         <footer className="footer">
@@ -12,7 +12,7 @@ const Footer = () => {
                     ?
                     <div className="response">
                         <span className="response__text">Response</span>
-                        <textarea className="response__input" name="response" id="" cols="30" rows="10"></textarea>
+                        <div className="response__information">{`Message: ${setFetchErrorMessage}`}</div>
                     </div>
                     :
                     <></>

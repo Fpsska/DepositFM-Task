@@ -20,7 +20,7 @@ const FormTemplate = ({ text, placeholder, htmlFor }) => {
     return (
         <div className="form__field">
             <label className="form__label" htmlFor={htmlFor}>{text}</label>
-            <input className="form__input" type="text" id={htmlFor} placeholder={placeholder} onChange={inputHandler} />
+            <input className="form__input" type="text" name={htmlFor} id={htmlFor} placeholder={placeholder} onChange={inputHandler} />
         </div>
     )
 }

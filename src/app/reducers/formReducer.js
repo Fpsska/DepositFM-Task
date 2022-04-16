@@ -4,6 +4,7 @@ import {
     ACTION_SET_NAME_VALUE,
     ACTION_SET_SURNAME_VALUE,
     ACTION_SET_PATRONYMIC_VALUE,
+    ACTION_SET_FETCH_ERROR_MESSAGE
 } from "../actions/formActions";
 
 // /. imports
@@ -34,6 +35,7 @@ const initialState = {
     currentName: "",
     currentSurname: "",
     currentPatronymic: "",
+    setFetchErrorMessage: ""
 };
 
 // /. state
@@ -64,6 +66,11 @@ const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPatronymic: action.payload,
+            };
+        case ACTION_SET_FETCH_ERROR_MESSAGE:
+            return {
+                ...state,
+                setFetchErrorMessage: action.payload,
             };
         default:
             return state;

@@ -4,6 +4,8 @@ export const ACTION_SET_NAME_VALUE = "ACTION_SET_NAME_VALUE"
 export const ACTION_SET_SURNAME_VALUE = "ACTION_SET_SURNAME_VALUE"
 export const ACTION_SET_PATRONYMIC_VALUE = "ACTION_SET_PATRONYMIC_VALUE"
 
+export const ACTION_SET_FETCH_ERROR_MESSAGE = "ACTION_SET_FETCH_ERROR_MESSAGE"
+
 // /. AC names
 
 export const setImageSelectedStatus = (status) => {
@@ -41,5 +43,11 @@ export const setPatronymicValue = (value) => {
     }
 }
 
+export const setFetchErrorMessage = (value) => {
+    return {
+        type: ACTION_SET_FETCH_ERROR_MESSAGE,
+        payload: value
+    }
+}
 
 

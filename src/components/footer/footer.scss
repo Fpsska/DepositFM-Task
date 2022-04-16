@@ -19,13 +19,11 @@
         line-height: 22px;
         color: rgba(235, 235, 245, 0.6);
     }
-    &__input {
+    &__information {
         background: rgba(118, 118, 128, 0.24);
         border-radius: 10px;
         color: #fff;
         padding: 10px;
-        resize: none;
-        outline: none;
-        border: none;
+        min-height: 118px
     }
 }
