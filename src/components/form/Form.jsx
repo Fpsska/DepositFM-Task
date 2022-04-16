@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setImageSelectedStatus, setFormSubmitStatus } from "../../app/actions/formActions";
 import FormTemplate from "./FormTemplate";
 import "./form.scss"
 
 const Form = () => {
-    const { formInputs, isImageSelected } = useSelector(state => state.formReducer)
+    const { formInputs, isImageSelected, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer)
     const [image, setImage] = useState("")
     const dispatch = useDispatch()
     // 
@@ -20,21 +20,43 @@ const Form = () => {
         dispatch(setImageSelectedStatus(true));
     }
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
         dispatch(setFormSubmitStatus(true));
+
+        try {
+            const response = await fetch("https://test-job.pixli.app/send.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // your expected POST request payload goes here
+                    action: "send_data",
+                    id: 1,
+                    image: image,
+                    contact: { currentName, currentSurname, currentPatronymic },
+                })
+            });
+            const data = await response.json();
+            // enter you logic when the fetch is successful
+            console.log(data);
+        } catch (error) {
+            // enter your logic for when there is an error (ex. error toast)
+            console.log(error)
+        }
     }
 
     // 
     return (
-        <form className="form" onSubmit={handleFormSubmit}>
+        <form className="form" action="https://test-job.pixli.app/send.php" method="POST" encType="multipart/form-data" onSubmit={handleFormSubmit}>
             <div className="form__wrapper">
                 <>
                     {formInputs.map(item => {
                         return (
                             <FormTemplate
                                 key={item.id}
-                                htmlFor={item.id}
+                                htmlFor={item.htmlFor}
                                 text={item.text}
                                 placeholder={item.placeholder}
                             />
@@ -46,10 +68,10 @@ const Form = () => {
                     <>
                         {isImageSelected
                             ?
-                            <img className="file__image" src={image} alt="image" />
+                            <img className="file__image" src={image} alt="chosenImage" />
                             :
                             <>
-                                <input className="file__input" type="file" id="file" accept="image/*" required onChange={e => setNewImage(e)} />
+                                <input className="file__input" type="file" id="file" accept="image/*" required onChange={setNewImage} />
                                 <label className="file__label" htmlFor="file"></label>
                             </>
                         }
