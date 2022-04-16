@@ -41,7 +41,8 @@
             line-height: 22px;
         }
     }
-    &__button { // +mixin
+    &__button {
+        // +mixin
         background: #007aff;
         border-radius: 8px;
         color: #fff;
@@ -50,15 +51,22 @@
         line-height: 22px;
         padding: 14px 16px;
         margin: 0 0 23px 0;
+        transform: scale(1);
+        transition: transform 0.35s linear;
         &:disabled {
             background-color: rgba($color: #007aff, $alpha: 0.35);
             cursor: not-allowed;
+        }
+        &:active {
+            transform: scale(1.1);
+            transition: transform 0.35s linear;
         }
     }
 }
 
 .file {
-    &__text { // +mixin
+    &__text {
+        // +mixin
         padding: 0 0 0 15px;
         font-size: 13px;
         font-weight: 700;
@@ -80,6 +88,12 @@
         padding: 0;
         background-color: rgba(118, 118, 128, 0.24);
         border-radius: 10px;
+        transform: scale(1);
+        transition: transform 0.2s linear;
+        &:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s linear;
+        }
     }
     &__image {
         width: 100%;
@@ -87,5 +101,3 @@
         object-fit: contain;
     }
 }
-
-

@@ -1,15 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setImageSelectedStatus, setFormSubmitStatus, setFetchErrorMessage } from "../../app/actions/formActions";
-import { sendPostRequest } from "../../helpers/postRequest";
+import { usePostRequest } from "../../hooks/postRequest";
 import FormTemplate from "./FormTemplate";
 import "./form.scss"
 
 const Form = () => {
     const { formInputs, isImageSelected, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer)
     const [image, setImage] = useState("")
+    const { request } = usePostRequest()
     const dispatch = useDispatch()
     // 
+
     const setNewImage = (e) => {
         const fileReader = new FileReader();
 
@@ -21,27 +23,23 @@ const Form = () => {
         dispatch(setImageSelectedStatus(true));
     }
 
-
-
     const HandleFormSubmit = (e) => {
         e.preventDefault();
-        dispatch(setFormSubmitStatus(true));
-
-        sendPostRequest("https://test-job.pixli.app/send.php", {
+        request("https://test-job.pixli.app/send.php", {
             action: "send_data",
             id: 1,
             image,
-            constacts: { currentName, currentSurname, currentPatronymic }
+            contacts: { currentName, currentSurname, currentPatronymic }
         })
             .then((data) => {
                 console.log("data:", data)
             })
+            .then(() => dispatch(setFormSubmitStatus(true)))
             .catch((err) => console.log(err))
     }
-
     // 
     return (
-        <form className="form" id="main-form" onSubmit={HandleFormSubmit}>
+        <form className="form" onSubmit={HandleFormSubmit}>
             <div className="form__wrapper">
                 <>
                     {formInputs.map(item => {

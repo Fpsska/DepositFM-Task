@@ -24,6 +24,8 @@
         border-radius: 10px;
         color: #fff;
         padding: 10px;
-        min-height: 118px
+        min-height: 118px;
+        display: flex;
+        flex-direction: column;
     }
 }

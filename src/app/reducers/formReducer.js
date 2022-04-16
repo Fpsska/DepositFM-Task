@@ -4,7 +4,8 @@ import {
     ACTION_SET_NAME_VALUE,
     ACTION_SET_SURNAME_VALUE,
     ACTION_SET_PATRONYMIC_VALUE,
-    ACTION_SET_FETCH_ERROR_MESSAGE
+    ACTION_SET_FETCH_ERROR_MESSAGE,
+    ACTION_SET_RESPONSE_INFO
 } from "../actions/formActions";
 
 // /. imports
@@ -31,11 +32,12 @@ const initialState = {
         },
     ],
     isImageSelected: false,
-    isFormSubmit: false,
+    isFormSubmited: false,
     currentName: "",
     currentSurname: "",
     currentPatronymic: "",
-    setFetchErrorMessage: ""
+    setFetchErrorMessage: "",
+    currentResponseInfo: {}
 };
 
 // /. state
@@ -50,7 +52,7 @@ const formReducer = (state = initialState, action) => {
         case ACTION_SET_FORM_SUBMIT_STATUS:
             return {
                 ...state,
-                isFormSubmit: action.payload,
+                isFormSubmited: action.payload,
             };
         case ACTION_SET_NAME_VALUE:
             return {
@@ -71,6 +73,11 @@ const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 setFetchErrorMessage: action.payload,
+            };
+        case ACTION_SET_RESPONSE_INFO:
+            return {
+                ...state,
+                currentResponseInfo: action.payload,
             };
         default:
             return state;
