@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { usePostRequest } from "../../hooks/postRequest";
+import { useSelector, useDispatch } from "react-redux";
+import { setResponseInfo, setRequestInfo } from "../../app/actions/formActions";
 import "./footer.scss"
 
 const Footer = () => {
-    const { isFormPage, isFormSubmit } = useSelector(state => state.navReducer)
-    const { status, error } = usePostRequest()
+    const { isFormPage } = useSelector(state => state.navReducer)
+    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formReducer)
+    const dispatch = useDispatch()
+    // 
     useEffect(() => {
-        console.log(isFormSubmit)
-    }, [isFormSubmit])
+        dispatch(setRequestInfo({ message: "waiting for submit", status: "waiting for submit" }))
+        dispatch(setResponseInfo({ message: "waiting for submit", status: "waiting for submit" }))
+    }, [])
     // 
     return (
         <footer className="footer">
@@ -18,8 +21,8 @@ const Footer = () => {
                     <div className="response">
                         <span className="response__text">Response</span>
                         <div className="response__information">
-                            <span>{`Status: ${status}`}</span>
-                            <span>{`Message: ${error}`}</span>
+                            <span className="response__status">{`Status: ${isFormSubmited ? currentRequestInfo.status : currentResponseInfo.status}`}</span>
+                            <span className="response__message">{`Message:  ${isFormSubmited ? currentRequestInfo.message : currentResponseInfo.message}`}</span>
                         </div>
                     </div>
                     :

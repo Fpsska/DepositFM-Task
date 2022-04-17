@@ -1,9 +1,9 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { setResponseInfo } from "../app/actions/formActions";
 
 export function usePostRequest() {
-    const [error, setError] = useState("")
-    const [status, setStatus] = useState("")
-
+    const dispatch = useDispatch()
     const request = useCallback(async (url, data) => {
         try {
             const response = await fetch(url, {     // response configuration
@@ -19,18 +19,13 @@ export function usePostRequest() {
             }
 
             const output = await response.json()
-
-            setError(output.status)
-            setStatus(output.msg)
-
             return output
 
-        } catch (error) {
-            console.log("Error from sendFormData:", error.message)
-            setError(error.status)
-            setStatus(error.msg)
+        } catch (err) {
+            console.log("Error from request:", err.message)
+            dispatch(setResponseInfo({ message: err.message, status: "error" }))
         }
     }, [])
 
-    return { request, error, status }
+    return { request }
 }

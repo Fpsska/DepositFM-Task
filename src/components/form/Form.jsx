@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setImageSelectedStatus, setFormSubmitStatus, setFetchErrorMessage } from "../../app/actions/formActions";
+import { setImageSelectedStatus, setFormSubmitStatus, setRequestInfo } from "../../app/actions/formActions";
 import { usePostRequest } from "../../hooks/postRequest";
 import FormTemplate from "./FormTemplate";
 import "./form.scss"
@@ -10,6 +10,7 @@ const Form = () => {
     const [image, setImage] = useState("")
     const { request } = usePostRequest()
     const dispatch = useDispatch()
+    const form = useRef()
     // 
 
     const setNewImage = (e) => {
@@ -23,8 +24,9 @@ const Form = () => {
         dispatch(setImageSelectedStatus(true));
     }
 
-    const HandleFormSubmit = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
+
         request("https://test-job.pixli.app/send.php", {
             action: "send_data",
             id: 1,
@@ -33,13 +35,21 @@ const Form = () => {
         })
             .then((data) => {
                 console.log("data:", data)
+                dispatch(setRequestInfo({ message: data.msg, status: data.status }))
             })
-            .then(() => dispatch(setFormSubmitStatus(true)))
-            .catch((err) => console.log(err))
+            .then(() => {
+                form.current.reset()
+                dispatch(setImageSelectedStatus(false))
+                dispatch(setFormSubmitStatus(true))
+            })
+            .catch((err) => {
+                console.log(err)
+                dispatch(setRequestInfo({ message: err.msg, status: err.status }))
+            })
     }
     // 
     return (
-        <form className="form" onSubmit={HandleFormSubmit}>
+        <form ref={form} className="form" onSubmit={handleFormSubmit}>
             <div className="form__wrapper">
                 <>
                     {formInputs.map(item => {
