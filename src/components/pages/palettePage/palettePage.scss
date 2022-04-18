@@ -19,42 +19,4 @@
     }
 }
 
-.palette {
-    &__wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0 20px;
-    }
-    &__template {
-        width: 54px;
-        height: 54px;
-        border-radius: 5px;
-        margin: 8px;
-        cursor: pointer;
-    }
-    &__template--firts {
-        background-color: #ff453a;
-    }
-    &__template--second {
-        background-color: #ff9f0a;
-    }
-    &__template--third {
-        background-color: #ffd60a;
-    }
-    &__template--fourth {
-        background-color: #32d74b;
-    }
-    &__template--fifth {
-        background-color: #64d2ff;
-    }
-    &__template--sixth {
-        background-color: #0a84ff;
-    }
-    &__template--seventh {
-        background-color: #bf5af2;
-    }
-    &__template--eighth {
-        background-color: #ff375f;
-    }
-}
+

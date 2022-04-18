@@ -1,0 +1,37 @@
+.palette {
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    &__template {
+        width: 54px;
+        height: 54px;
+        border-radius: 5px;
+        margin: 8px;
+        cursor: pointer;
+        position: relative;
+        &:hover {
+            .palette__button--delete {
+                opacity: 1;
+            }
+        }
+    }
+    &__button--delete {
+        position: absolute;
+        top: -15%;
+        right: -15%;
+
+        width: 17px;
+        height: 17px;
+        background-color: transparent;
+        opacity: 0;
+        transition: all 0.3s linear;
+
+        background-image: url(../../assets/images/close_icon.svg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

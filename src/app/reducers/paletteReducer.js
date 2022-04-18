@@ -1,10 +1,12 @@
 import {
-
+    ACTION_SET_PALETTE_VISIBLE_STATUS,
+    ACTION_ADD_CURRENT_PALETTE_TEMPLATE,
+    ACTION_DELETE_CURRENT_PALETTE_TEMPLATE
 } from "../actions/paletteActions";
 // /. imports
 
 const initialState = {
-    paletteTemplates: [
+    paletteData: [
         {
             id: 1,
             color: "#ff453a",
@@ -46,6 +48,7 @@ const initialState = {
             isSelected: false,
         },
     ],
+    currentPaletteData: [],
     isPaletteVisible: false
 };
 
@@ -53,6 +56,21 @@ const initialState = {
 
 const paletteReducer = (state = initialState, action) => {
     switch (action.type) {
+        case ACTION_SET_PALETTE_VISIBLE_STATUS:
+            return {
+                ...state,
+                isPaletteVisible: action.payload.status
+            }
+        case ACTION_ADD_CURRENT_PALETTE_TEMPLATE:
+            return {
+                ...state,
+                currentPaletteData: state.paletteData.filter(item => item.id === action.payload.id),
+            }
+        case ACTION_DELETE_CURRENT_PALETTE_TEMPLATE:
+            return {
+                ...state,
+                currentPaletteData: state.currentPaletteData.filter(item => item.id !== action.payload.id),
+            }
         default:
             return state;
     }
