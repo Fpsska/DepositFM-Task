@@ -1,5 +1,6 @@
 .palette-page {
     height: 100%;
+    position: relative;
     &__wrapper {
         height: 100%;
         max-width: 27.5%;
@@ -16,6 +17,12 @@
         font-weight: 400;
         line-height: 22px;
         padding: 14px 16px;
+        transform: scale(1);
+        transition: transform 0.35s linear;
+        &:active {
+            transform: scale(1.05);
+            transition: transform 0.35s linear;
+        }
     }
 }
 
