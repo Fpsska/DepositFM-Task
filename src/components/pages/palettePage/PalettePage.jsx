@@ -8,7 +8,7 @@ import "./palettePage.scss"
 const PalettePage = () => {
     const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector(state => state.paletteReducer)
     const [limit, setLimit] = useState(false)
-    const [initaialColor, setColor] = useState("#fff")
+    const [initaialColor, setColor] = useState("#ccc")
     const dispatch = useDispatch()
     const colorPicker = useRef()
     // 
