@@ -23,6 +23,13 @@
             transform: scale(1.05);
             transition: transform 0.35s linear;
         }
+        &:disabled {
+            background-color: rgba($color: #007aff, $alpha: 0.35);
+            cursor: not-allowed;
+        }
+    }
+    &__picker {
+        margin: 50px 0;
     }
 }
 

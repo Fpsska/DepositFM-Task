@@ -11,43 +11,35 @@ const initialState = {
     paletteData: [
         {
             id: 1,
-            color: "#ff453a",
-            isSelected: false,
+            color: "#ff453a"
         },
         {
             id: 2,
             color: "#ff9f0a",
-            isSelected: false,
         },
         {
             id: 3,
-            color: "#ffd60a",
-            isSelected: false,
+            color: "#ffd60a"
         },
         {
             id: 4,
-            color: "#32d74b",
-            isSelected: false,
+            color: "#32d74b"
         },
         {
             id: 5,
-            color: "#64d2ff",
-            isSelected: false,
+            color: "#64d2ff"
         },
         {
             id: 6,
-            color: "#0a84ff",
-            isSelected: false,
+            color: "#0a84ff"
         },
         {
             id: 7,
-            color: "#bf5af2",
-            isSelected: false,
+            color: "#bf5af2"
         },
         {
             id: 8,
-            color: "#ff375f",
-            isSelected: false,
+            color: "#ff375f"
         },
     ],
     currentPaletteData: [],
@@ -67,7 +59,7 @@ const paletteReducer = (state = initialState, action) => {
         case ACTION_ADD_CURRENT_PALETTE_TEMPLATE:
             return {
                 ...state,
-                currentPaletteData: state.paletteData.filter(item => item.id === action.payload.id),
+                currentPaletteData: [...state.currentPaletteData, action.payload.data]
             }
         case ACTION_DELETE_CURRENT_PALETTE_TEMPLATE:
             return {

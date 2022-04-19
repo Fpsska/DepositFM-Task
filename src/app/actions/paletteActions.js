@@ -16,10 +16,10 @@ export const setPaletteVisibleStatus = (status) => {
     }
 }
 
-export const addCurrentPaletteTemplate = (id) => {
+export const addCurrentPaletteTemplate = (data) => {
     return {
         type: ACTION_ADD_CURRENT_PALETTE_TEMPLATE,
-        payload: { id }
+        payload: { data }
     }
 }
 

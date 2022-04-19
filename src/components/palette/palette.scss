@@ -20,6 +20,7 @@
     }
     &__button--delete {
         position: absolute;
+        z-index: 2;
         top: -15%;
         right: -15%;
 
@@ -36,8 +37,8 @@
     }
 }
 
-.chrome-picker {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-}
+// .chrome-picker {
+//     position: absolute;
+//     top: 20%;
+//     left: 10%;
+// }

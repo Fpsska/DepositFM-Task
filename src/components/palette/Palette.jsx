@@ -7,7 +7,7 @@ const Palette = () => {
     const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteReducer)
     // 
     useEffect(() => {
-        console.log(currentPaletteData)
+        console.log("currentPaletteData/", currentPaletteData)
     }, [currentPaletteData])
     return (
         <div className="palette">
@@ -20,6 +20,7 @@ const Palette = () => {
                                 return (
                                     <PaletteTemplate
                                         key={item.id}
+                                        id={item.id}
                                         color={item.color}
                                     />
                                 )
