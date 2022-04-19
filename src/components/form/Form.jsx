@@ -1,13 +1,12 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setImageSelectedStatus, setFormSubmitStatus, setRequestInfo } from "../../app/actions/formActions";
+import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from "../../app/actions/formActions";
 import { usePostRequest } from "../../hooks/postRequest";
 import FormTemplate from "./FormTemplate";
 import "./form.scss"
 
 const Form = () => {
-    const { formInputs, isImageSelected, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer)
-    const [image, setImage] = useState("")
+    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer)
     const { request } = usePostRequest()
     const dispatch = useDispatch()
     const form = useRef()
@@ -23,7 +22,7 @@ const Form = () => {
 
         fileReader.readAsDataURL(e.target.files[0]);
         fileReader.onload = () => {
-            setImage(fileReader.result)
+            dispatch(setImageURL(fileReader.result))
         };
 
         dispatch(setImageSelectedStatus(true));
@@ -35,7 +34,7 @@ const Form = () => {
         request("https://test-job.pixli.app/send.php", {
             action: "send_data",
             id: 1,
-            image,
+            image: currentImageURL,
             contacts: { currentName, currentSurname, currentPatronymic }
         })
             .then((data) => {
@@ -73,7 +72,7 @@ const Form = () => {
                     <>
                         {isImageSelected
                             ?
-                            <img className="file__image" src={image} alt="chosenImage" />
+                            <img className="file__image" src={currentImageURL} alt="chosenImage" />
                             :
                             <>
                                 <input className="file__input" type="file" name="file" id="file" accept="image/*" required onChange={setNewImage} />

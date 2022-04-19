@@ -1,5 +1,6 @@
 import {
     ACTION_SET_IMAGE_SELECTED_STATUS,
+    ACTION_SET_IMAGE_URL,
     ACTION_SET_FORM_SUBMIT_STATUS,
     ACTION_SET_NAME_VALUE,
     ACTION_SET_SURNAME_VALUE,
@@ -33,6 +34,7 @@ const initialState = {
     ],
     isImageSelected: false,
     isFormSubmited: false,
+    currentImageURL: "",
     currentName: "",
     currentSurname: "",
     currentPatronymic: "",
@@ -48,6 +50,11 @@ const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isImageSelected: action.payload,
+            };
+        case ACTION_SET_IMAGE_URL:
+            return {
+                ...state,
+                currentImageURL: action.payload,
             };
         case ACTION_SET_FORM_SUBMIT_STATUS:
             return {

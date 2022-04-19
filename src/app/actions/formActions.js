@@ -1,5 +1,8 @@
 export const ACTION_SET_IMAGE_SELECTED_STATUS = "ACTION_SET_IMAGE_SELECTED_STATUS"
+export const ACTION_SET_IMAGE_URL = "ACTION_SET_IMAGE_URL"
+
 export const ACTION_SET_FORM_SUBMIT_STATUS = "ACTION_SET_FORM_SUBMIT_STATUS"
+
 export const ACTION_SET_NAME_VALUE = "ACTION_SET_NAME_VALUE"
 export const ACTION_SET_SURNAME_VALUE = "ACTION_SET_SURNAME_VALUE"
 export const ACTION_SET_PATRONYMIC_VALUE = "ACTION_SET_PATRONYMIC_VALUE"
@@ -15,6 +18,14 @@ export const setImageSelectedStatus = (status) => {
         payload: status
     }
 }
+
+export const setImageURL = (value) => {
+    return {
+        type: ACTION_SET_IMAGE_URL,
+        payload: value
+    }
+}
+
 
 export const setFormSubmitStatus = (status) => {
     return {
