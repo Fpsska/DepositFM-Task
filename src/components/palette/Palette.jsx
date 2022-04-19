@@ -19,7 +19,6 @@ const Palette = () => {
                                         key={item.id}
                                         id={item.id}
                                         color={item.color}
-                                        currentPaletteData={currentPaletteData}
                                     />
                                 )
                             })}

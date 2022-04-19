@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from "../../app/actions/paletteActions";
 
-const PaletteTemplate = ({ color, id, currentPaletteData }) => {
+const PaletteTemplate = ({ color, id }) => {
     const dispatch = useDispatch()
     // 
-    const deletePaletteTemplate = (e) => {
-        dispatch(deleteCurrentPaletteTemplate(+e.target.parentNode.id))
+    const deletePaletteTemplate = () => {
+        dispatch(deleteCurrentPaletteTemplate(id))
     }
 
     const openColorPicker = () => {
@@ -16,7 +16,7 @@ const PaletteTemplate = ({ color, id, currentPaletteData }) => {
 
     useEffect(() => {  // set current ID for define necessary item in currentPaletteData
         dispatch(setCurrentPaletteTemplateID(id))
-    }, [currentPaletteData])
+    }, [id])
     // 
     return (
         <div style={{ backgroundColor: color }} className="palette__template" id={id} onClick={openColorPicker}>
