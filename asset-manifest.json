@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DepositFM-Task/static/css/main.3b923624.css",
-    "main.js": "/DepositFM-Task/static/js/main.c45c02d9.js",
+    "main.js": "/DepositFM-Task/static/js/main.8fe574ac.js",
     "static/media/image-add_icon.svg": "/DepositFM-Task/static/media/image-add_icon.adaec920925227754ec1.svg",
     "static/media/close_icon.svg": "/DepositFM-Task/static/media/close_icon.f8c2dd582a0004c10d46.svg",
     "index.html": "/DepositFM-Task/index.html",
     "main.3b923624.css.map": "/DepositFM-Task/static/css/main.3b923624.css.map",
-    "main.c45c02d9.js.map": "/DepositFM-Task/static/js/main.c45c02d9.js.map"
+    "main.8fe574ac.js.map": "/DepositFM-Task/static/js/main.8fe574ac.js.map"
   },
   "entrypoints": [
     "static/css/main.3b923624.css",
-    "static/js/main.c45c02d9.js"
+    "static/js/main.8fe574ac.js"
   ]
 }
