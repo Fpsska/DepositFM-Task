@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PaletteTemplate from "./PaletteTemplate";
 import { useSelector } from "react-redux";
 import "./palette.scss"
 
 const Palette = () => {
     const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteReducer)
-    // 
-    // useEffect(() => {
-    //     console.log("currentPaletteData/", currentPaletteData)
-    // }, [currentPaletteData])
     // 
     return (
         <div className="palette">
@@ -23,6 +19,7 @@ const Palette = () => {
                                         key={item.id}
                                         id={item.id}
                                         color={item.color}
+                                        currentPaletteData={currentPaletteData}
                                     />
                                 )
                             })}

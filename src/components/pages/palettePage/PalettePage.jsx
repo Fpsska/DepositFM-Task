@@ -8,6 +8,7 @@ import "./palettePage.scss"
 const PalettePage = () => {
     const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector(state => state.paletteReducer)
     const [limit, setLimit] = useState(false)
+    const [initaialColor, setColor] = useState("#fff")
     const dispatch = useDispatch()
     const colorPicker = useRef()
     // 
@@ -15,15 +16,16 @@ const PalettePage = () => {
         dispatch(addCurrentPaletteTemplate(
             {
                 id: Math.floor(Math.random() * 1000),
-                color: "#fff"
+                color: initaialColor
             }
         ))
         dispatch(setPaletteVisibleStatus(true))
         dispatch(setColorPickerStatus(true))
     }
 
-    const setCurrentPickerColor = (color) => {
-        dispatch(setCurrentPaletteTemplateColor(currentPaletteTemplateID, color))
+    const setCurrentPickerColor = (updatedColor) => {
+        dispatch(setCurrentPaletteTemplateColor(currentPaletteTemplateID, updatedColor))
+        setColor(updatedColor)
     }
 
     const keyHandler = (e) => {
@@ -33,8 +35,8 @@ const PalettePage = () => {
     }
 
     const defineValidColorPickerArea = (e) => {
-        const validPickerArea = e.target == colorPicker.current || colorPicker.current.contains(e.target)
-        const validElements = e.target.className == "palette__template" || e.target.className == "palette-page__button"
+        const validPickerArea = e.target === colorPicker.current || colorPicker.current.contains(e.target)
+        const validElements = e.target.className === "palette__template" || e.target.className === "palette-page__button"
         if (!validPickerArea && !validElements) {
             dispatch(setColorPickerStatus(false))
         }
@@ -55,12 +57,13 @@ const PalettePage = () => {
     }, [isColorPickerVisible])
 
     useEffect(() => {
-        if (currentPaletteData.length >= 8) {
+        if (currentPaletteData.length >= 8) { // disable ADD button
             setLimit(true)
         } else {
             setLimit(false)
         }
-        if (currentPaletteData.length <= 0) {
+        // 
+        if (currentPaletteData.length <= 0) { // hide ColorPicker
             dispatch(setColorPickerStatus(false))
         }
     }, [currentPaletteData])
@@ -75,7 +78,7 @@ const PalettePage = () => {
                     {
                         isColorPickerVisible
                             ?
-                            <ChromePicker color={"#fff"} onChange={(updatedColor) => setCurrentPickerColor(updatedColor.hex)} />
+                            <ChromePicker color={initaialColor} onChange={(updatedColor) => setCurrentPickerColor(updatedColor.hex)} />
                             :
                             <></>
                     }

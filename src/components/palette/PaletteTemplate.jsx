@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from "../../app/actions/paletteActions";
 
-const PaletteTemplate = ({ color, id }) => {
+const PaletteTemplate = ({ color, id, currentPaletteData }) => {
     const dispatch = useDispatch()
     // 
     const deletePaletteTemplate = (e) => {
         dispatch(deleteCurrentPaletteTemplate(+e.target.parentNode.id))
     }
 
-    const openColorPicker = (e) => {
+    const openColorPicker = () => {
         dispatch(setColorPickerStatus(true))
-        dispatch(setCurrentPaletteTemplateID(+e.target.id))
+        dispatch(setCurrentPaletteTemplateID(id))
     }
+
+    useEffect(() => {  // set current ID for define necessary item in currentPaletteData
+        dispatch(setCurrentPaletteTemplateID(id))
+    }, [currentPaletteData])
     // 
     return (
         <div style={{ backgroundColor: color }} className="palette__template" id={id} onClick={openColorPicker}>
