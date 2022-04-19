@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setImageSelectedStatus, setFormSubmitStatus, setRequestInfo } from "../../app/actions/formActions";
 import { usePostRequest } from "../../hooks/postRequest";
@@ -12,6 +12,11 @@ const Form = () => {
     const dispatch = useDispatch()
     const form = useRef()
     // 
+    useEffect(() => {
+        console.log("currentName/", currentName)
+        console.log("currentSurname/", currentSurname)
+        console.log("currentPatronymic/", currentPatronymic)
+    }, [currentName, currentSurname, currentPatronymic])
 
     const setNewImage = (e) => {
         const fileReader = new FileReader();
