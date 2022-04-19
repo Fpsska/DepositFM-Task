@@ -6,9 +6,10 @@ import "./palette.scss"
 const Palette = () => {
     const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteReducer)
     // 
-    useEffect(() => {
-        console.log("currentPaletteData/", currentPaletteData)
-    }, [currentPaletteData])
+    // useEffect(() => {
+    //     console.log("currentPaletteData/", currentPaletteData)
+    // }, [currentPaletteData])
+    // 
     return (
         <div className="palette">
             <div className="palette__wrapper">

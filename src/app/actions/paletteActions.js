@@ -5,6 +5,8 @@ export const ACTION_DELETE_CURRENT_PALETTE_TEMPLATE = "ACTION_DELETE_CURRENT_PAL
 
 export const ACTION_SET_COLOR_PICKER_STATUS = "ACTION_SET_COLOR_PICKER_STATUS"
 export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR = "ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR"
+export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID = "ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID"
+
 
 
 // /. AC names
@@ -44,6 +46,12 @@ export const setCurrentPaletteTemplateColor = (id, value) => {
     }
 }
 
+export const setCurrentPaletteTemplateID = (id) => {
+    return {
+        type: ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID,
+        payload: { id }
+    }
+}
 
 
 

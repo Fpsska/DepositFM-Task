@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatus, setCurrentPaletteTemplateColor } from "../../../app/actions/paletteActions";
 import Palette from "../../palette/Palette";
@@ -6,25 +6,24 @@ import { ChromePicker } from 'react-color'
 import "./palettePage.scss"
 
 const PalettePage = () => {
-    const { isColorPickerVisible, currentPaletteData } = useSelector(state => state.paletteReducer)
+    const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector(state => state.paletteReducer)
     const [limit, setLimit] = useState(false)
     const dispatch = useDispatch()
+    const colorPicker = useRef()
     // 
     const addPaletteTemplate = () => {
         dispatch(addCurrentPaletteTemplate(
             {
-                id: Math.floor(Math.random() * 100),
-                color: "#ccc"
+                id: Math.floor(Math.random() * 1000),
+                color: "#fff"
             }
         ))
         dispatch(setPaletteVisibleStatus(true))
-        setTimeout(() => {
-            dispatch(setColorPickerStatus(true))
-        }, 100);
+        dispatch(setColorPickerStatus(true))
     }
 
     const setCurrentPickerColor = (color) => {
-        dispatch(setCurrentPaletteTemplateColor(1, color))
+        dispatch(setCurrentPaletteTemplateColor(currentPaletteTemplateID, color))
     }
 
     const keyHandler = (e) => {
@@ -33,18 +32,36 @@ const PalettePage = () => {
         }
     }
 
+    const defineValidColorPickerArea = (e) => {
+        const validPickerArea = e.target == colorPicker.current || colorPicker.current.contains(e.target)
+        const validElements = e.target.className == "palette__template" || e.target.className == "palette-page__button"
+        if (!validPickerArea && !validElements) {
+            dispatch(setColorPickerStatus(false))
+        }
+    }
+
     useEffect(() => {
-        window.addEventListener("keydown", keyHandler)
+        document.addEventListener("keydown", keyHandler)
         return () => {
-            window.removeEventListener("keydown", keyHandler)
+            document.removeEventListener("keydown", keyHandler)
         }
     }, [])
 
     useEffect(() => {
-        if (currentPaletteData.length >= 8) {  // don't work :(
+        document.addEventListener("click", defineValidColorPickerArea)
+        return () => {
+            document.removeEventListener("click", defineValidColorPickerArea)
+        }
+    }, [isColorPickerVisible])
+
+    useEffect(() => {
+        if (currentPaletteData.length >= 8) {
             setLimit(true)
         } else {
             setLimit(false)
+        }
+        if (currentPaletteData.length <= 0) {
+            dispatch(setColorPickerStatus(false))
         }
     }, [currentPaletteData])
     // 
@@ -54,7 +71,7 @@ const PalettePage = () => {
                 <div className="palette-page__palette">
                     <Palette />
                 </div>
-                <div className="palette-page__picker">
+                <div ref={colorPicker} className="palette-page__picker">
                     {
                         isColorPickerVisible
                             ?

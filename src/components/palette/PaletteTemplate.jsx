@@ -1,18 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteCurrentPaletteTemplate, setColorPickerStatus } from "../../app/actions/paletteActions";
+import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from "../../app/actions/paletteActions";
 
 const PaletteTemplate = ({ color, id }) => {
     const dispatch = useDispatch()
     // 
     const deletePaletteTemplate = (e) => {
-        console.log(e.target.parentNode.id)
         dispatch(deleteCurrentPaletteTemplate(+e.target.parentNode.id))
     }
 
-    const openColorPicker = () => {
-        // dispatch(setColorPickerStatus(true))
-        // console.log("!!!")
+    const openColorPicker = (e) => {
+        dispatch(setColorPickerStatus(true))
+        dispatch(setCurrentPaletteTemplateID(+e.target.id))
     }
     // 
     return (

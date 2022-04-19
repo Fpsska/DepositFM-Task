@@ -2,7 +2,6 @@
     &__wrapper {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
         padding: 0 20px;
     }
     &__template {
@@ -12,10 +11,17 @@
         margin: 8px;
         cursor: pointer;
         position: relative;
+        transform: scale(1);
+        transition: transform 0.25s linear;
+        z-index: 2;
         &:hover {
             .palette__button--delete {
                 opacity: 1;
             }
+        }
+        &:active {
+            transition: transform 0.25s linear;
+            transform: scale(1.15);
         }
     }
     &__button--delete {
