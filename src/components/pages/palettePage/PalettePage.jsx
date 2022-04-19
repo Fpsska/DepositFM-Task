@@ -44,14 +44,9 @@ const PalettePage = () => {
 
     useEffect(() => {
         document.addEventListener("keydown", keyHandler)
-        return () => {
-            document.removeEventListener("keydown", keyHandler)
-        }
-    }, [])
-
-    useEffect(() => {
         document.addEventListener("click", defineValidColorPickerArea)
         return () => {
+            document.removeEventListener("keydown", keyHandler)
             document.removeEventListener("click", defineValidColorPickerArea)
         }
     }, [isColorPickerVisible])

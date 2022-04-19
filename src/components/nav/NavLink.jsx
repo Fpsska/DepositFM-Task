@@ -1,24 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setActiveStatus, setFormPageStatus } from "../../app/actions/navActions";
+import { Link } from "react-router-dom";
+import { setActiveStatus } from "../../app/actions/navActions";
+import { useDefinePage } from "../../hooks/definePage";
 
 
 const NavLink = ({ id, text, link, isActive }) => {
     const dispatch = useDispatch()
+    const { handlePageName } = useDefinePage()
     // 
     const switchLinkActiveStatus = () => {
         dispatch(setActiveStatus(true, id))
-        definePageStatus()
-    }
-
-    const definePageStatus = () => {
-        if (text === "Palette") {
-            dispatch(setFormPageStatus(false))
-        }
-        if (text === "Form") {
-            dispatch(setFormPageStatus(true))
-        }
+        handlePageName(text)
     }
     // 
     return (
