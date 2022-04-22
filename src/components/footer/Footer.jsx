@@ -5,7 +5,7 @@ import { setResponseInfo, setRequestInfo } from '../../app/reducers/formSlice';
 import './footer.scss';
 
 const Footer = () => {
-    const { isFormPage } = useSelector(state => state.navReducer);
+    const { isFormPage } = useSelector(state => state.navSlice);
     const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formSlice);
     const dispatch = useDispatch();
     // 

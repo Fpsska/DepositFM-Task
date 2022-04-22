@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { setActiveStatus } from '../../app/actions/navActions';
+import { setActiveStatus } from '../../app/reducers/navSlice';
 import { useDefinePage } from '../../hooks/definePage';
 
 

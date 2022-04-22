@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import navReducer from './reducers/navReducer';
+import navSlice from './reducers/navSlice';
 import formSlice from './reducers/formSlice';
 import paletteReducer from './reducers/paletteReducer';
 
 export const store = configureStore({
   reducer: {
-    navReducer: navReducer,
+    navSlice: navSlice,
     formSlice: formSlice,
     paletteReducer: paletteReducer,
   },

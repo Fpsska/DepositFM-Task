@@ -6,7 +6,7 @@ import './nav.scss';
 
 
 const Nav = () => {
-    const { navLinks } = useSelector(state => state.navReducer);
+    const { navLinks } = useSelector(state => state.navSlice);
     // 
     return (
         <nav className="nav">
