@@ -1,21 +1,21 @@
 import {
   ACTION_SET_ACTIVE_STATUS,
   ACTION_SET_FORM_PAGE_STATUS,
-} from "../actions/navActions";
+} from '../actions/navActions';
 // /. imports
 
 const initialState = {
   navLinks: [
     {
       id: 1,
-      text: "Form",
-      link: "/DepositFM-Task/",
+      text: 'Form',
+      link: '/DepositFM-Task/',
       isActive: true,
     },
     {
       id: 2,
-      text: "Palette",
-      link: "Palette",
+      text: 'Palette',
+      link: 'Palette',
       isActive: false,
     },
   ],

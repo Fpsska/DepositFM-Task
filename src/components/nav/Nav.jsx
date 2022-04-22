@@ -1,11 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import NavLink from "./NavLink";
-import "./nav.scss"
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import NavLink from './NavLink';
+import './nav.scss';
 
 
 const Nav = () => {
-    const { navLinks } = useSelector(state => state.navReducer)
+    const { navLinks } = useSelector(state => state.navReducer);
     // 
     return (
         <nav className="nav">
@@ -19,11 +20,11 @@ const Nav = () => {
                             link={item.link}
                             isActive={item.isActive}
                         />
-                    )
+                    );
                 })}
             </ul>
         </nav>
-    )
-}
+    );
+};
 
 export default Nav;

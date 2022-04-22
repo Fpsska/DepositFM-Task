@@ -4,8 +4,8 @@ import {
     ACTION_DELETE_CURRENT_PALETTE_TEMPLATE,
     ACTION_SET_COLOR_PICKER_STATUS,
     ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR,
-    ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID
-} from "../actions/paletteActions";
+    ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID,
+} from '../actions/paletteActions';
 // /. imports
 
 const initialState = {
@@ -22,23 +22,23 @@ const paletteReducer = (state = initialState, action) => {
         case ACTION_SET_PALETTE_VISIBLE_STATUS:
             return {
                 ...state,
-                isPaletteVisible: action.payload.status
-            }
+                isPaletteVisible: action.payload.status,
+            };
         case ACTION_ADD_CURRENT_PALETTE_TEMPLATE:
             return {
                 ...state,
-                currentPaletteData: [...state.currentPaletteData, action.payload.data]
-            }
+                currentPaletteData: [...state.currentPaletteData, action.payload.data],
+            };
         case ACTION_DELETE_CURRENT_PALETTE_TEMPLATE:
             return {
                 ...state,
                 currentPaletteData: state.currentPaletteData.filter(item => item.id !== action.payload.id),
-            }
+            };
         case ACTION_SET_COLOR_PICKER_STATUS:
             return {
                 ...state,
-                isColorPickerVisible: action.payload.status
-            }
+                isColorPickerVisible: action.payload.status,
+            };
         case ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR:
             return {
                 ...state,
@@ -46,18 +46,18 @@ const paletteReducer = (state = initialState, action) => {
                     if (item.id === action.payload.id) {
                         return {
                             ...item,
-                            color: action.payload.value
-                        }
+                            color: action.payload.value,
+                        };
                     } else {
-                        return item
+                        return item;
                     }
-                })
-            }
+                }),
+            };
         case ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID:
             return {
                 ...state,
-                currentPaletteTemplateID: action.payload.id
-            }
+                currentPaletteTemplateID: action.payload.id,
+            };
         default:
             return state;
     }

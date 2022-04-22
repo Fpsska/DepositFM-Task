@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setResponseInfo, setRequestInfo } from "../../app/actions/formActions";
-import "./footer.scss"
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setResponseInfo, setRequestInfo } from '../../app/actions/formActions';
+import './footer.scss';
 
 const Footer = () => {
-    const { isFormPage } = useSelector(state => state.navReducer)
-    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formReducer)
-    const dispatch = useDispatch()
+    const { isFormPage } = useSelector(state => state.navReducer);
+    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formReducer);
+    const dispatch = useDispatch();
     // 
     useEffect(() => {
-        dispatch(setRequestInfo({ message: "waiting for submit", status: "waiting for submit" }))
-        dispatch(setResponseInfo({ message: "waiting for submit", status: "waiting for submit" }))
-    }, [])
+        dispatch(setRequestInfo({ message: 'waiting for submit', status: 'waiting for submit' }));
+        dispatch(setResponseInfo({ message: 'waiting for submit', status: 'waiting for submit' }));
+    }, []);
     // 
     return (
         <footer className="footer">
@@ -30,7 +31,7 @@ const Footer = () => {
                 }
             </div>
         </footer>
-    )
-}
+    );
+};
 
 export default Footer;

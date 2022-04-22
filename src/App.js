@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
+
 import Layout from './components/common/Layout';
-import FormPage from "./components/pages/FormPage"
+import FormPage from './components/pages/FormPage';
 import PalettePage from './components/pages/palettePage/PalettePage';
-import "./assets/styles/style.scss"
-import "./assets/styles/media.scss"
-import "./App.css";
+import './assets/styles/style.scss';
+import './assets/styles/media.scss';
+import './App.css';
 
 function App() {
   return (

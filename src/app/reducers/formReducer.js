@@ -6,8 +6,8 @@ import {
     ACTION_SET_SURNAME_VALUE,
     ACTION_SET_PATRONYMIC_VALUE,
     ACTION_SET_RESPONSE_INFO,
-    ACTION_SET_REQUEST_INFO
-} from "../actions/formActions";
+    ACTION_SET_REQUEST_INFO,
+} from '../actions/formActions';
 
 // /. imports
 
@@ -15,31 +15,31 @@ const initialState = {
     formInputs: [
         {
             id: 1,
-            htmlFor: "name",
-            text: "Name",
-            placeholder: "Your Name",
+            htmlFor: 'name',
+            text: 'Name',
+            placeholder: 'Your Name',
         },
         {
             id: 2,
-            htmlFor: "surname",
-            text: "Surname",
-            placeholder: "Your Surname",
+            htmlFor: 'surname',
+            text: 'Surname',
+            placeholder: 'Your Surname',
         },
         {
             id: 3,
-            htmlFor: "patronymic",
-            text: "Patronymic",
-            placeholder: "Your Patronymic",
+            htmlFor: 'patronymic',
+            text: 'Patronymic',
+            placeholder: 'Your Patronymic',
         },
     ],
     isImageSelected: false,
     isFormSubmited: false,
-    currentImageURL: "",
-    currentName: "",
-    currentSurname: "",
-    currentPatronymic: "",
+    currentImageURL: '',
+    currentName: '',
+    currentSurname: '',
+    currentPatronymic: '',
     currentResponseInfo: [],
-    currentRequestInfo: []
+    currentRequestInfo: [],
 };
 
 // /. state

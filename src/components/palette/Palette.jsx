@@ -1,10 +1,12 @@
-import React from "react";
-import PaletteTemplate from "./PaletteTemplate";
-import { useSelector } from "react-redux";
-import "./palette.scss"
+import React from 'react';
+
+import { useSelector } from 'react-redux';
+
+import PaletteTemplate from './PaletteTemplate';
+import './palette.scss';
 
 const Palette = () => {
-    const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteReducer)
+    const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteReducer);
     // 
     return (
         <div className="palette">
@@ -20,7 +22,7 @@ const Palette = () => {
                                         id={item.id}
                                         color={item.color}
                                     />
-                                )
+                                );
                             })}
                         </>
                         :
@@ -28,7 +30,7 @@ const Palette = () => {
                 }
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Palette;

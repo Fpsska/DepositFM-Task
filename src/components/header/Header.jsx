@@ -1,6 +1,7 @@
-import React from "react";
-import Nav from "../nav/Nav";
-import "./header.scss"
+import React from 'react';
+
+import Nav from '../nav/Nav';
+import './header.scss';
 
 const Header = () => {
     return (
@@ -11,7 +12,7 @@ const Header = () => {
                 </div>
             </div>
         </header>
-    )
-}
+    );
+};
 
 export default Header;

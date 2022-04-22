@@ -1,13 +1,15 @@
 import React from 'react';
-import { createRoot } from "react-dom/client"
-import { store } from './app/store';
+import { createRoot } from 'react-dom/client';
+
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+
+import { store } from './app/store';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>

@@ -1,56 +1,52 @@
-import React, { useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from "../../app/actions/formActions";
-import { usePostRequest } from "../../hooks/postRequest";
-import FormTemplate from "./FormTemplate";
-import "./form.scss"
+import React, { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/actions/formActions';
+import { usePostRequest } from '../../hooks/postRequest';
+
+import FormTemplate from './FormTemplate';
+import './form.scss';
 
 const Form = () => {
-    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer)
-    const { request } = usePostRequest()
-    const dispatch = useDispatch()
-    const form = useRef()
+    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer);
+    const { request } = usePostRequest();
+    const dispatch = useDispatch();
+    const form = useRef();
     // 
-    useEffect(() => {
-        console.log("currentName/", currentName)
-        console.log("currentSurname/", currentSurname)
-        console.log("currentPatronymic/", currentPatronymic)
-    }, [currentName, currentSurname, currentPatronymic])
-
     const setNewImage = (e) => {
         const fileReader = new FileReader();
 
         fileReader.readAsDataURL(e.target.files[0]);
         fileReader.onload = () => {
-            dispatch(setImageURL(fileReader.result))
+            dispatch(setImageURL(fileReader.result));
         };
 
         dispatch(setImageSelectedStatus(true));
-    }
+    };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        request("https://test-job.pixli.app/send.php", {
-            action: "send_data",
+        request('https://test-job.pixli.app/send.php', {
+            action: 'send_data',
             id: 1,
             image: currentImageURL,
-            contacts: { currentName, currentSurname, currentPatronymic }
+            contacts: { currentName, currentSurname, currentPatronymic },
         })
             .then((data) => {
-                console.log("data:", data)
-                dispatch(setRequestInfo({ message: data.msg, status: data.status }))
+                console.log('data:', data);
+                dispatch(setRequestInfo({ message: data.msg, status: data.status }));
             })
             .then(() => {
-                form.current.reset()
-                dispatch(setImageSelectedStatus(false))
-                dispatch(setFormSubmitStatus(true))
+                form.current.reset();
+                dispatch(setImageSelectedStatus(false));
+                dispatch(setFormSubmitStatus(true));
             })
             .catch((err) => {
-                console.log(err)
-                dispatch(setRequestInfo({ message: err.msg, status: err.status }))
-            })
-    }
+                console.log(err);
+                dispatch(setRequestInfo({ message: err.msg, status: err.status }));
+            });
+    };
     // 
     return (
         <form ref={form} className="form" onSubmit={handleFormSubmit}>
@@ -64,7 +60,7 @@ const Form = () => {
                                 text={item.text}
                                 placeholder={item.placeholder}
                             />
-                        )
+                        );
                     })}
                 </>
                 <div className="form__field file">
@@ -86,7 +82,7 @@ const Form = () => {
 
             </div>
         </form>
-    )
-}
+    );
+};
 
 export default Form;

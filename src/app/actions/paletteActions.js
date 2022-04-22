@@ -1,11 +1,11 @@
 
-export const ACTION_SET_PALETTE_VISIBLE_STATUS = "ACTION_SET_PALETTE_VISIBLE_STATUS"
-export const ACTION_ADD_CURRENT_PALETTE_TEMPLATE = "ACTION_ADD_CURRENT_PALETTE_TEMPLATE"
-export const ACTION_DELETE_CURRENT_PALETTE_TEMPLATE = "ACTION_DELETE_CURRENT_PALETTE_TEMPLATE"
+export const ACTION_SET_PALETTE_VISIBLE_STATUS = 'ACTION_SET_PALETTE_VISIBLE_STATUS';
+export const ACTION_ADD_CURRENT_PALETTE_TEMPLATE = 'ACTION_ADD_CURRENT_PALETTE_TEMPLATE';
+export const ACTION_DELETE_CURRENT_PALETTE_TEMPLATE = 'ACTION_DELETE_CURRENT_PALETTE_TEMPLATE';
 
-export const ACTION_SET_COLOR_PICKER_STATUS = "ACTION_SET_COLOR_PICKER_STATUS"
-export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR = "ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR"
-export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID = "ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID"
+export const ACTION_SET_COLOR_PICKER_STATUS = 'ACTION_SET_COLOR_PICKER_STATUS';
+export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR = 'ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR';
+export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID = 'ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID';
 
 
 
@@ -14,44 +14,44 @@ export const ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID = "ACTION_SET_CURRENT_PALETT
 export const setPaletteVisibleStatus = (status) => {
     return {
         type: ACTION_SET_PALETTE_VISIBLE_STATUS,
-        payload: { status }
-    }
-}
+        payload: { status },
+    };
+};
 
 export const addCurrentPaletteTemplate = (data) => {
     return {
         type: ACTION_ADD_CURRENT_PALETTE_TEMPLATE,
-        payload: { data }
-    }
-}
+        payload: { data },
+    };
+};
 
 export const deleteCurrentPaletteTemplate = (id) => {
     return {
         type: ACTION_DELETE_CURRENT_PALETTE_TEMPLATE,
-        payload: { id }
-    }
-}
+        payload: { id },
+    };
+};
 
 export const setColorPickerStatus = (status) => {
     return {
         type: ACTION_SET_COLOR_PICKER_STATUS,
-        payload: { status }
-    }
-}
+        payload: { status },
+    };
+};
 
 export const setCurrentPaletteTemplateColor = (id, value) => {
     return {
         type: ACTION_SET_CURRENT_PALETTE_TEMPLATE_COLOR,
-        payload: { id, value }
-    }
-}
+        payload: { id, value },
+    };
+};
 
 export const setCurrentPaletteTemplateID = (id) => {
     return {
         type: ACTION_SET_CURRENT_PALETTE_TEMPLATE_ID,
-        payload: { id }
-    }
-}
+        payload: { id },
+    };
+};
 
 
 
