@@ -6,7 +6,7 @@ import PaletteTemplate from './PaletteTemplate';
 import './palette.scss';
 
 const Palette = () => {
-    const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteReducer);
+    const { currentPaletteData, isPaletteVisible } = useSelector(state => state.paletteSlice);
     // 
     return (
         <div className="palette">

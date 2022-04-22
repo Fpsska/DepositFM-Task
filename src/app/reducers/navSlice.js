@@ -22,7 +22,7 @@ const navSlice = createSlice({
     isFormPage: true,
   },
   reducers: {
-    setActiveStatus(state, action) {
+    setNavLinkActiveStatus(state, action) {
       const { id, status } = action.payload;
       state.navLinks.map(item => {
         if (item.id === id) {
@@ -39,7 +39,7 @@ const navSlice = createSlice({
 });
 
 export const {
-  setActiveStatus,
+  setNavLinkActiveStatus,
   setFormPageStatus,
 } = navSlice.actions;
 

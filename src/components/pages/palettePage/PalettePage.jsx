@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ChromePicker } from 'react-color';
 
-import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatus, setCurrentPaletteTemplateColor } from '../../../app/actions/paletteActions';
+import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatus, setCurrentPaletteTemplateColor } from '../../../app/reducers/paletteSlice';
 import Palette from '../../palette/Palette';
 import './palettePage.scss';
 
 const PalettePage = () => {
-    const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector(state => state.paletteReducer);
+    const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector(state => state.paletteSlice);
     const [limit, setLimit] = useState(false);
     const [initaialColor, setColor] = useState('#ccc');
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const PalettePage = () => {
     };
 
     const setCurrentPickerColor = (updatedColor) => {
-        dispatch(setCurrentPaletteTemplateColor(currentPaletteTemplateID, updatedColor));
+        dispatch(setCurrentPaletteTemplateColor({ id: currentPaletteTemplateID, value: updatedColor }));
         setColor(updatedColor);
     };
 

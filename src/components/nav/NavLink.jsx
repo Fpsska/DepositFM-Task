@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { setActiveStatus } from '../../app/reducers/navSlice';
+import { setNavLinkActiveStatus } from '../../app/reducers/navSlice';
 import { useDefinePage } from '../../hooks/definePage';
 
 
@@ -11,7 +11,7 @@ const NavLink = ({ id, text, link, isActive }) => {
     const { handlePageName } = useDefinePage();
     // 
     const switchLinkActiveStatus = () => {
-        dispatch(setActiveStatus(true, id));
+        dispatch(setNavLinkActiveStatus({ id, status: true }));
         handlePageName(text);
     };
     // 
