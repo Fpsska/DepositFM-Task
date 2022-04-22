@@ -4,9 +4,8 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import * as serviceWorker from './serviceWorker';
-
 import { store } from './app/store';
+import * as serviceWorker from './serviceWorker';
 import App from './App';
 
 
@@ -19,7 +18,7 @@ root.render(
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
