@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { setFormPageStatus } from '../app/reducers/navSlice';
+import { setFormPageStatus } from '../app/slices/navSlice';
 
 export function useDefinePage() {
     const dispatch = useDispatch();

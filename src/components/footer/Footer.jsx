@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setResponseInfo, setRequestInfo } from '../../app/reducers/formSlice';
+import { setResponseInfo, setRequestInfo } from '../../app/slices/formSlice';
 import './footer.scss';
 
 const Footer = () => {

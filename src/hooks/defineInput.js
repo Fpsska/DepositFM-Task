@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { setNameValue, setSurnameValue, setPatronymicValue } from '../app/reducers/formSlice';
+import { setNameValue, setSurnameValue, setPatronymicValue } from '../app/slices/formSlice';
 
 export function useDefineInput() {
     const dispatch = useDispatch();

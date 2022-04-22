@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/reducers/formSlice';
+import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/slices/formSlice';
 import { usePostRequest } from '../../hooks/postRequest';
 
 import FormTemplate from './FormTemplate';

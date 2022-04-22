@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from '../form/Form';
+import Form from '../../form/Form';
 
 const FormPage = () => {
     return (

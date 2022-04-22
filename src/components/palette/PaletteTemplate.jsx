@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from '../../app/reducers/paletteSlice';
+import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from '../../app/slices/paletteSlice';
 
 const PaletteTemplate = ({ color, id }) => {
     const dispatch = useDispatch();

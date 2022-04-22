@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setResponseInfo } from '../app/reducers/formSlice';
+import { setResponseInfo } from '../app/slices/formSlice';
 
 export function usePostRequest() {
     const dispatch = useDispatch();

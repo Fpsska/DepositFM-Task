@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ChromePicker } from 'react-color';
 
-import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatus, setCurrentPaletteTemplateColor } from '../../../app/reducers/paletteSlice';
+import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatus, setCurrentPaletteTemplateColor } from '../../../app/slices/paletteSlice';
 import Palette from '../../palette/Palette';
 import './palettePage.scss';
 
