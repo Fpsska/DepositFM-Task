@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/actions/formActions';
+import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/reducers/formSlice';
 import { usePostRequest } from '../../hooks/postRequest';
 
 import FormTemplate from './FormTemplate';
 import './form.scss';
 
 const Form = () => {
-    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formReducer);
+    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formSlice);
     const { request } = usePostRequest();
     const dispatch = useDispatch();
     const form = useRef();
@@ -34,7 +34,6 @@ const Form = () => {
             contacts: { currentName, currentSurname, currentPatronymic },
         })
             .then((data) => {
-                console.log('data:', data);
                 dispatch(setRequestInfo({ message: data.msg, status: data.status }));
             })
             .then(() => {
@@ -43,7 +42,6 @@ const Form = () => {
                 dispatch(setFormSubmitStatus(true));
             })
             .catch((err) => {
-                console.log(err);
                 dispatch(setRequestInfo({ message: err.msg, status: err.status }));
             });
     };

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setResponseInfo, setRequestInfo } from '../../app/actions/formActions';
+import { setResponseInfo, setRequestInfo } from '../../app/reducers/formSlice';
 import './footer.scss';
 
 const Footer = () => {
     const { isFormPage } = useSelector(state => state.navReducer);
-    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formReducer);
+    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formSlice);
     const dispatch = useDispatch();
     // 
     useEffect(() => {
