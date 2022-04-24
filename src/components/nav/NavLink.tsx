@@ -6,7 +6,14 @@ import { setNavLinkActiveStatus } from '../../app/slices/navSlice';
 import { useDefinePage } from '../../hooks/definePage';
 
 
-const NavLink = ({ id, text, link, isActive }) => {
+interface NavLinkPropTypes {
+    id: number,
+    text: string,
+    link: string,
+    isActive: boolean,
+}
+
+const NavLink: React.FC<NavLinkPropTypes> = ({ id, text, link, isActive }) => {
     const dispatch = useDispatch();
     const { handlePageName } = useDefinePage();
     // 
