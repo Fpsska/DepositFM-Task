@@ -1,4 +1,4 @@
 export interface currentPaletteDataTypes {
-    id: number,
+    id: string,
     color: string,
 };

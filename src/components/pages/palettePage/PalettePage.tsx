@@ -19,7 +19,7 @@ const PalettePage: React.FC = () => {
     const addPaletteTemplate = (): void => {
         dispatch(addCurrentPaletteTemplate(
             {
-                id: Math.floor(Math.random() * 1000),
+                id: String(Math.floor(Math.random() * 1000)),
                 color: initaialColor,
             },
         ));
