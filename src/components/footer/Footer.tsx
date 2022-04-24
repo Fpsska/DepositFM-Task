@@ -4,14 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setResponseInfo, setRequestInfo } from '../../app/slices/formSlice';
 import './footer.scss';
 
-const Footer = () => {
-    const { isFormPage } = useSelector(state => state.navSlice);
-    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector(state => state.formSlice);
+import { RootState } from '../../app/store';
+
+const Footer: React.FC = () => {
+    const { isFormPage } = useSelector((state: RootState) => state.navSlice);
+    const { isFormSubmited, currentResponseInfo, currentRequestInfo } = useSelector((state: RootState) => state.formSlice);
     const dispatch = useDispatch();
     // 
     useEffect(() => {
-        dispatch(setRequestInfo({ message: 'waiting for submit', status: 'waiting for submit' }));
-        dispatch(setResponseInfo({ message: 'waiting for submit', status: 'waiting for submit' }));
+        dispatch(setRequestInfo({ id: Math.floor(Math.random() * 1000), message: 'waiting for submit', status: 'waiting for submit' }));
+        dispatch(setResponseInfo({ id: Math.floor(Math.random() * 1000), message: 'waiting for submit', status: 'waiting for submit' }));
     }, []);
     // 
     return (

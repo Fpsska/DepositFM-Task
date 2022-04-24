@@ -3,12 +3,14 @@ export interface formInputsTypes {
     htmlFor: string,
     text: string,
     placeholder: string,
-}
+} 
 
-export interface currentResponseInfoTypes {
-    message: string,
-    status: string,
-}
+// interface currentResponseOBJTypes {
+//     id: number,
+//     message: string,
+//     status: string,
+// }
+// export interface currentResponseInfoTypes {
+//     [key:string]: currentResponseOBJTypes
+// }
 
-export interface currentRequestInfoTypes extends currentResponseInfoTypes {
-}

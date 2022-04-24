@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { formInputsTypes, currentResponseInfoTypes, currentRequestInfoTypes } from '../../Types/formSliceTypes';
+import { formInputsTypes } from '../../Types/formSliceTypes';
 
 // /. imports
 
@@ -11,8 +11,8 @@ interface formSliceTypes {
     currentName: string,
     currentSurname: string
     currentPatronymic: string,
-    currentResponseInfo: currentResponseInfoTypes[],
-    currentRequestInfo: currentRequestInfoTypes[],
+    currentResponseInfo: any, // { id: number, message: string, status: string }[]
+    currentRequestInfo: any,
     formInputs: formInputsTypes[],
 }
 
@@ -73,10 +73,11 @@ const formSlice = createSlice({
         setPatronymicValue(state, action: PayloadAction<string>) {
             state.currentPatronymic = action.payload;
         },
-        setResponseInfo(state, action: PayloadAction<currentResponseInfoTypes[]>) {
+        setResponseInfo(state, action: PayloadAction<any>) { // { id: number, message: string, status: string }[]
             state.currentResponseInfo = action.payload;
+            // state.currentResponseInfo.splice(0, 1, action.payload);
         },
-        setRequestInfo(state, action: PayloadAction<currentRequestInfoTypes[]>) {
+        setRequestInfo(state, action: PayloadAction<any>) {
             state.currentRequestInfo = action.payload;
         },
     },
