@@ -7,37 +7,39 @@ import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatu
 import Palette from '../../palette/Palette';
 import './palettePage.scss';
 
-const PalettePage = () => {
-    const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector(state => state.paletteSlice);
+import { RootState } from '../../../app/store';
+
+const PalettePage: React.FC = () => {
+    const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector((state: RootState) => state.paletteSlice);
     const [limit, setLimit] = useState(false);
     const [initaialColor, setColor] = useState('#ccc');
     const dispatch = useDispatch();
-    const colorPicker = useRef();
+    const colorPicker = useRef<HTMLDivElement>(null!);
     // 
-    const addPaletteTemplate = () => {
+    const addPaletteTemplate = (): void => {
         dispatch(addCurrentPaletteTemplate(
             {
                 id: Math.floor(Math.random() * 1000),
                 color: initaialColor,
-            }
+            },
         ));
         dispatch(setPaletteVisibleStatus(true));
         dispatch(setColorPickerStatus(true));
     };
 
-    const setCurrentPickerColor = (updatedColor) => {
+    const setCurrentPickerColor = (updatedColor: string): void => {
         dispatch(setCurrentPaletteTemplateColor({ id: currentPaletteTemplateID, value: updatedColor }));
         setColor(updatedColor);
     };
 
-    const keyHandler = (e) => {
-        if (e.code === 'Escape') {
+    const keyHandler = (e: any): void => {
+        if (isColorPickerVisible && e.code === 'Escape') {
             dispatch(setColorPickerStatus(false));
         }
     };
 
-    const defineValidColorPickerArea = (e) => {
-        const validPickerArea = e.target === colorPicker.current || colorPicker.current.contains(e.target);
+    const defineValidColorPickerArea = (e: any): void => {
+        const validPickerArea = e.target === colorPicker.current || colorPicker.current.contains(e.target);  // (e.target as Element)
         const validElements = e.target.className === 'palette__template' || e.target.className === 'palette-page__button';
         if (!validPickerArea && !validElements) {
             dispatch(setColorPickerStatus(false));
@@ -75,7 +77,7 @@ const PalettePage = () => {
                     {
                         isColorPickerVisible
                             ?
-                            <ChromePicker color={initaialColor} onChange={(updatedColor) => setCurrentPickerColor(updatedColor.hex)} />
+                            <ChromePicker color={initaialColor} onChange={(updatedColor: { hex: string }) => setCurrentPickerColor(updatedColor.hex)} />
                             :
                             <></>
                     }

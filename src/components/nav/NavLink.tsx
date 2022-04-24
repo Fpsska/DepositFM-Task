@@ -17,7 +17,7 @@ const NavLink: React.FC<NavLinkPropTypes> = ({ id, text, link, isActive }) => {
     const dispatch = useDispatch();
     const { handlePageName } = useDefinePage();
     // 
-    const switchLinkActiveStatus = () => {
+    const switchLinkActiveStatus = (): void => {
         dispatch(setNavLinkActiveStatus({ id, status: true }));
         handlePageName(text);
     };
