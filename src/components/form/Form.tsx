@@ -4,27 +4,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/slices/formSlice';
 import { usePostRequest } from '../../hooks/postRequest';
 
+import { RootState } from '../../app/store';
+
 import FormTemplate from './FormTemplate';
 import './form.scss';
 
-const Form = () => {
-    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector(state => state.formSlice);
+
+const Form: React.FC = () => {
+    const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector((state: RootState) => state.formSlice);
     const { request } = usePostRequest();
     const dispatch = useDispatch();
-    const form = useRef();
+    const form = useRef<HTMLFormElement>(null!);
     // 
-    const setNewImage = (e) => {
+    const setNewImage = (e: any): void => { // React.FormEvent<HTMLInputElement> / React.FormEvent<HTMLInputElement> / React.ChangeEvent<HTMLInputElement>
         const fileReader = new FileReader();
 
-        fileReader.readAsDataURL(e.target.files[0]);
+        fileReader.readAsDataURL((e.target.files[0]));
         fileReader.onload = () => {
-            dispatch(setImageURL(fileReader.result));
+            dispatch(setImageURL(String(fileReader.result)));
         };
 
         dispatch(setImageSelectedStatus(true));
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
 
         request('https://test-job.pixli.app/send.php', {

@@ -3,7 +3,7 @@ import React from 'react';
 import Nav from '../nav/Nav';
 import './header.scss';
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <header className="header">
             <div className="header__wrapper">
