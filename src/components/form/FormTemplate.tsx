@@ -13,7 +13,7 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = ({ text, placeholder, html
     // 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>, inputName: string) => {
         e.target.value = e.target.value.replace(/[0-9]/g, '');
-        handleInputName(e, inputName);
+        handleInputName({ e, inputName });
     };
     // 
     return (

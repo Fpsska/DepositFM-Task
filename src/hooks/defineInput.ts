@@ -1,11 +1,19 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setNameValue, setSurnameValue, setPatronymicValue } from '../app/slices/formSlice';
 
+interface propsTypes {
+    e: React.ChangeEvent<HTMLInputElement>,
+    inputName: string
+}
+
 export function useDefineInput() {
     const dispatch = useDispatch();
 
-    const handleInputName = (e, inputName) => {
+    const handleInputName = (props: propsTypes) => {
+        const { e, inputName } = props;
+
         switch (inputName) {
             case 'name':
                 dispatch(setNameValue(e.target.value));

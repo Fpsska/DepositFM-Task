@@ -2,10 +2,11 @@ import { useDispatch } from 'react-redux';
 
 import { setFormPageStatus } from '../app/slices/navSlice';
 
+
 export function useDefinePage() {
     const dispatch = useDispatch();
 
-    const handlePageName = (pageName) => {
+    const handlePageName = (pageName: string) => {
         switch (pageName) {
             case 'Form':
                 dispatch(setFormPageStatus(true));
