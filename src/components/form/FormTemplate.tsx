@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useDefineInput } from '../../hooks/defineInput';
 
+
 interface FormTemplatePropTypes {
     text: string,
     placeholder: string,
@@ -10,6 +11,8 @@ interface FormTemplatePropTypes {
 
 const FormTemplate: React.FC<FormTemplatePropTypes> = ({ text, placeholder, htmlFor }) => {
     const { handleInputName } = useDefineInput();
+
+
     // 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>, inputName: string) => {
         e.target.value = e.target.value.replace(/[0-9]/g, '');
@@ -17,9 +20,12 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = ({ text, placeholder, html
     };
     // 
     return (
-        <div className="form__field">
-            <label className="form__label" htmlFor={htmlFor}>{text}</label>
-            <input className="form__input" type="text" name={htmlFor} id={htmlFor} placeholder={placeholder} required onChange={(e) => inputHandler(e, htmlFor)} />
+        <div className="form__field field">
+            <div className="field__title">
+                <label className="field__label" htmlFor={htmlFor}>{text}</label>
+                <span className="field__warn">no valid</span>
+            </div>
+            <input className="field__input" type="text" name={htmlFor} id={htmlFor} placeholder={placeholder} required onChange={(e) => inputHandler(e, htmlFor)} />
         </div>
     );
 };

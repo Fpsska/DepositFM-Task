@@ -19,6 +19,37 @@
     .form__field.file {
         margin: 0 0 48px 0;
     }
+    &__button {
+        // +mixin
+        background: #007aff;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 22px;
+        padding: 14px 16px;
+        margin: 0 0 23px 0;
+        transform: scale(1);
+        transition: transform 0.35s linear;
+        &:disabled {
+            background-color: rgba($color: #007aff, $alpha: 0.35);
+            cursor: not-allowed;
+        }
+        &:active {
+            transform: scale(1.05);
+            transition: transform 0.35s linear;
+        }
+    }
+}
+
+.field {
+    &__title {
+        display: flex;
+        align-items: center;
+        :not(:last-child) {
+            margin: 0 10px 0 0;
+        }
+    }
     &__label {
         padding: 0 0 0 15px;
         font-size: 13px;
@@ -41,26 +72,8 @@
             line-height: 22px;
         }
     }
-    &__button {
-        // +mixin
-        background: #007aff;
-        border-radius: 8px;
-        color: #fff;
-        font-size: 17px;
-        font-weight: 400;
-        line-height: 22px;
-        padding: 14px 16px;
-        margin: 0 0 23px 0;
-        transform: scale(1);
-        transition: transform 0.35s linear;
-        &:disabled {
-            background-color: rgba($color: #007aff, $alpha: 0.35);
-            cursor: not-allowed;
-        }
-        &:active {
-            transform: scale(1.05);
-            transition: transform 0.35s linear;
-        }
+    &__warn {
+        color: red;
     }
 }
 
