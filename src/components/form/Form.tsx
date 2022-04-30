@@ -6,14 +6,21 @@ import { usePostRequest } from '../../hooks/postRequest';
 
 import { RootState } from '../../app/store';
 
-import FormTemplate from './FormTemplate';
+// import FormTemplate from './FormTemplate';
+import { useInput } from '../../hooks/defineInput';
+
 import './form.scss';
 
 
 const Form: React.FC = () => {
     const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector((state: RootState) => state.formSlice);
-    const { request } = usePostRequest();
     const dispatch = useDispatch();
+    // 
+    const { request } = usePostRequest();
+    const inputName = useInput('', { empty: true, minLength: 3, maxLength: 10 });
+    const inputSurname = useInput('', { empty: true, minLength: 4, maxLength: 11 });
+    const inputPatronymic = useInput('', { empty: true, minLength: 5, maxLength: 14 });
+
     const form = useRef<HTMLFormElement>(null!);
     // 
     const setNewImage = (e: any): void => { // React.FormEvent<HTMLInputElement> / React.FormEvent<HTMLInputElement> / React.ChangeEvent<HTMLInputElement>
@@ -26,6 +33,7 @@ const Form: React.FC = () => {
 
         dispatch(setImageSelectedStatus(true));
     };
+
 
     const handleFormSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -52,18 +60,66 @@ const Form: React.FC = () => {
     return (
         <form ref={form} className="form" onSubmit={handleFormSubmit}>
             <div className="form__wrapper">
-                <>
-                    {formInputs.map(item => {
-                        return (
-                            <FormTemplate
-                                key={item.id}
-                                htmlFor={item.htmlFor}
-                                text={item.text}
-                                placeholder={item.placeholder}
-                            />
-                        );
-                    })}
-                </>
+                <div className="form__field field">
+                    <div className="field__title">
+                        <label className="field__label" htmlFor="name">Name</label>
+                        {inputName.isInputActive && inputName.minLengthError
+                            ? <span className="field__warn">minimum length is should be 3 letter</span>
+                            : <></>}
+                        {inputName.isInputActive && inputName.maxLengthError
+                            ? <span className="field__warn">maximum length is should be less 10 letter</span>
+                            : <></>}
+                        {inputName.isInputActive && inputName.emptyError
+                            ? <span className="field__warn">field cannot be empty</span>
+                            : <></>}
+                    </div>
+                    <input className="field__input" type="text" name="name" placeholder="Your Name"
+                        value={inputName.value}
+                        onChange={e => inputName.onChange(e)}
+                        onBlur={e => inputName.onBlur(e)}
+                        required />
+                </div>
+                {/*  */}
+                <div className="form__field field">
+                    <div className="field__title">
+                        <label className="field__label" htmlFor="surname">Surname</label>
+                        {inputSurname.isInputActive && inputSurname.minLengthError
+                            ? <span className="field__warn">minimum length is should be 4 letter</span>
+                            : <></>}
+                        {inputSurname.isInputActive && inputSurname.maxLengthError
+                            ? <span className="field__warn">maximum length is should be less 11 letter</span>
+                            : <></>}
+                        {inputSurname.isInputActive && inputSurname.emptyError
+                            ? <span className="field__warn">field cannot be empty</span>
+                            : <></>}
+                    </div>
+                    <input className="field__input" type="text" name="surname" placeholder="Your Surname"
+                        value={inputSurname.value}
+                        onChange={e => inputSurname.onChange(e)}
+                        onBlur={e => inputSurname.onBlur(e)}
+                        required />
+                </div>
+                {/*  */}
+                <div className="form__field field">
+                    <div className="field__title">
+                        <label className="field__label" htmlFor="patronymic">Patronymic</label>
+                        {inputPatronymic.isInputActive && inputPatronymic.minLengthError
+                            ? <span className="field__warn">minimum length is should be 5 letter</span>
+                            : <></>}
+                        {inputPatronymic.isInputActive && inputPatronymic.maxLengthError
+                            ? <span className="field__warn">maximum length is should be less 14 letter</span>
+                            : <></>}
+                        {inputPatronymic.isInputActive && inputPatronymic.emptyError
+                            ? <span className="field__warn">field cannot be empty</span>
+                            : <></>}
+                    </div>
+                    <input className="field__input" type="text" name="patronymic" placeholder="Your Patronymic"
+                        value={inputPatronymic.value}
+                        onChange={e => inputPatronymic.onChange(e)}
+                        onBlur={e => inputPatronymic.onBlur(e)}
+                        required />
+                </div>
+                {/*  */}
                 <div className="form__field file">
                     <span className="file__text">Photo</span>
                     <>
@@ -79,7 +135,10 @@ const Form: React.FC = () => {
                     </>
                 </div>
 
-                <button className="form__button" disabled={isImageSelected ? false : true}>Save</button>
+                <button className="form__button"
+                    disabled={!inputName.isInputValid || !inputPatronymic.isInputValid || !inputPatronymic.isInputValid}
+                >Save
+                </button>
 
             </div>
         </form>
@@ -87,3 +146,4 @@ const Form: React.FC = () => {
 };
 
 export default Form;
+

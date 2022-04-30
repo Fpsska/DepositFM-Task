@@ -1,32 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setNameValue, setSurnameValue, setPatronymicValue } from '../app/slices/formSlice';
+import { useValidation } from './inputValidation';
 
-interface propsTypes {
-    e: React.ChangeEvent<HTMLInputElement>,
-    inputName: string
-}
 
-export function useDefineInput() {
-    const dispatch = useDispatch();
+export function useInput(currentValue: string, validations: any) {
 
-    const handleInputName = (props: propsTypes) => {
-        const { e, inputName } = props;
+    const [value, setValue] = useState<string>(currentValue);
+    const [isInputActive, setInputActiveStatus] = useState<boolean>(false);
+    const valid = useValidation(value, validations);
 
-        switch (inputName) {
-            case 'name':
-                dispatch(setNameValue(e.target.value));
-                break;
-            case 'surname':
-                dispatch(setSurnameValue(e.target.value));
-                break;
-            case 'patronymic':
-                dispatch(setPatronymicValue(e.target.value));
-                break;
-            default:
-                return;
-        }
+    const onChange = (e: any) => {
+        setValue(e.target.value);
     };
-    return { handleInputName };
+
+    const onBlur = (e: any) => { // when leave input field
+        setInputActiveStatus(true);
+    };
+
+    return {
+        value,
+        isInputActive,
+        ...valid,
+        onChange,
+        onBlur,
+    };
+
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDefineInput } from '../../hooks/defineInput';
+// import { useDefineInput } from '../../hooks/defineInput';
 
 
 interface FormTemplatePropTypes {
@@ -10,13 +10,13 @@ interface FormTemplatePropTypes {
 }
 
 const FormTemplate: React.FC<FormTemplatePropTypes> = ({ text, placeholder, htmlFor }) => {
-    const { handleInputName } = useDefineInput();
+    // const { handleInputName } = useDefineInput();
 
 
     // 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>, inputName: string) => {
         e.target.value = e.target.value.replace(/[0-9]/g, '');
-        handleInputName({ e, inputName });
+        // handleInputName({ e, inputName });
     };
     // 
     return (
