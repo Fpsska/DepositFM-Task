@@ -8,8 +8,8 @@ export const store = configureStore({
   reducer: {
     navSlice: navSlice,
     formSlice: formSlice,
-    paletteSlice: paletteSlice,
-  },
+    paletteSlice: paletteSlice
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

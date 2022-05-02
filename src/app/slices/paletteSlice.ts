@@ -8,12 +8,12 @@ interface paletteSliceTypes {
     currentPaletteData: currentPaletteDataTypes[],
     isPaletteVisible: boolean,
     isColorPickerVisible: boolean,
-    currentPaletteTemplateID: string,
+    currentPaletteTemplateID: string
 };
 
 interface setCurrentPaletteTemplateColorTypes {
     id: string,
-    value: string,
+    value: string
 };
 
 // /. interfaces
@@ -22,7 +22,7 @@ const initialState: paletteSliceTypes = {
     currentPaletteData: [],
     isPaletteVisible: false,
     isColorPickerVisible: false,
-    currentPaletteTemplateID: '0',
+    currentPaletteTemplateID: '0'
 };
 
 // /. initialState
@@ -55,8 +55,8 @@ const paletteSlice = createSlice({
         },
         setCurrentPaletteTemplateID(state, action: PayloadAction<string>) {
             state.currentPaletteTemplateID = action.payload;
-        },
-    },
+        }
+    }
 });
 
 
@@ -66,7 +66,7 @@ export const {
     deleteCurrentPaletteTemplate,
     setColorPickerStatus,
     setCurrentPaletteTemplateColor,
-    setCurrentPaletteTemplateID,
+    setCurrentPaletteTemplateID
 } = paletteSlice.actions;
 
 

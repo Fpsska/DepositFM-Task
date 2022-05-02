@@ -6,7 +6,7 @@ import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTe
 
 interface PaletteTemplatePropTypes {
     id: string,
-    color: string,
+    color: string
 }
 
 const PaletteTemplate: React.FC<PaletteTemplatePropTypes> = ({ id, color }) => {

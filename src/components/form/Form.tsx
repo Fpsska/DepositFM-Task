@@ -15,13 +15,12 @@ import './form.scss';
 const Form: React.FC = () => {
     const { formInputs, isImageSelected, currentImageURL, currentName, currentSurname, currentPatronymic } = useSelector((state: RootState) => state.formSlice);
     const dispatch = useDispatch();
+    const form = useRef<HTMLFormElement>(null!);
     // 
     const { request } = usePostRequest();
     const inputName = useInput('', { empty: true, minLength: 3, maxLength: 10 });
     const inputSurname = useInput('', { empty: true, minLength: 4, maxLength: 11 });
     const inputPatronymic = useInput('', { empty: true, minLength: 5, maxLength: 14 });
-
-    const form = useRef<HTMLFormElement>(null!);
     // 
     const setNewImage = (e: any): void => { // React.FormEvent<HTMLInputElement> / React.FormEvent<HTMLInputElement> / React.ChangeEvent<HTMLInputElement>
         const fileReader = new FileReader();
@@ -34,7 +33,6 @@ const Form: React.FC = () => {
         dispatch(setImageSelectedStatus(true));
     };
 
-
     const handleFormSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
 
@@ -42,7 +40,7 @@ const Form: React.FC = () => {
             action: 'send_data',
             id: 1,
             image: currentImageURL,
-            contacts: { currentName, currentSurname, currentPatronymic },
+            contacts: { currentName, currentSurname, currentPatronymic }
         })
             .then((data) => {
                 dispatch(setRequestInfo({ message: data.msg, status: data.status }));
@@ -56,6 +54,19 @@ const Form: React.FC = () => {
                 dispatch(setRequestInfo({ message: err.msg, status: err.status }));
             });
     };
+
+    // const errorHandler = (error) => {
+    //     switch (error) {
+    //         case 'emptyError':
+    //             setCurrentError('field cannot be empty');
+    //             break;
+    //         case 'minLengthError':
+    //             setCurrentError('minimum length is should be 4 letter');
+    //             break;
+    //         case 'maxLengthError':
+    //             setCurrentError('maximum length is should be less 11 letter');
+    //     }
+    // };
     // 
     return (
         <form ref={form} className="form" onSubmit={handleFormSubmit}>
@@ -66,7 +77,7 @@ const Form: React.FC = () => {
                         {inputName.isInputActive && inputName.minLengthError
                             ? <span className="field__warn">minimum length is should be 3 letter</span>
                             : <></>}
-                        {inputName.isInputActive && inputName.maxLengthError
+                        {inputSurname.isInputActive && inputName.maxLengthError
                             ? <span className="field__warn">maximum length is should be less 10 letter</span>
                             : <></>}
                         {inputName.isInputActive && inputName.emptyError
@@ -75,8 +86,8 @@ const Form: React.FC = () => {
                     </div>
                     <input className="field__input" type="text" name="name" placeholder="Your Name"
                         value={inputName.value}
-                        onChange={e => inputName.onChange(e)}
-                        onBlur={e => inputName.onBlur(e)}
+                        onChange={e => inputName.onInputChange(e)}
+                        onBlur={() => inputName.onInputBlur()}
                         required />
                 </div>
                 {/*  */}
@@ -95,8 +106,8 @@ const Form: React.FC = () => {
                     </div>
                     <input className="field__input" type="text" name="surname" placeholder="Your Surname"
                         value={inputSurname.value}
-                        onChange={e => inputSurname.onChange(e)}
-                        onBlur={e => inputSurname.onBlur(e)}
+                        onChange={e => inputSurname.onInputChange(e)}
+                        onBlur={() => inputSurname.onInputBlur()}
                         required />
                 </div>
                 {/*  */}
@@ -115,8 +126,8 @@ const Form: React.FC = () => {
                     </div>
                     <input className="field__input" type="text" name="patronymic" placeholder="Your Patronymic"
                         value={inputPatronymic.value}
-                        onChange={e => inputPatronymic.onChange(e)}
-                        onBlur={e => inputPatronymic.onBlur(e)}
+                        onChange={e => inputPatronymic.onInputChange(e)}
+                        onBlur={() => inputPatronymic.onInputBlur()}
                         required />
                 </div>
                 {/*  */}

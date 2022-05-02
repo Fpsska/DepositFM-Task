@@ -10,7 +10,7 @@ interface NavLinkPropTypes {
     id: number,
     text: string,
     link: string,
-    isActive: boolean,
+    isActive: boolean
 }
 
 const NavLink: React.FC<NavLinkPropTypes> = ({ id, text, link, isActive }) => {

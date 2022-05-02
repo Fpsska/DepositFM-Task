@@ -6,7 +6,7 @@ import React from 'react';
 interface FormTemplatePropTypes {
     text: string,
     placeholder: string,
-    htmlFor: string,
+    htmlFor: string
 }
 
 const FormTemplate: React.FC<FormTemplatePropTypes> = ({ text, placeholder, htmlFor }) => {

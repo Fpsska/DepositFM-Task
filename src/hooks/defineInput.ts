@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 import { useValidation } from './inputValidation';
 
+// /. imports
 
 export function useInput(currentValue: string, validations: any) {
 
     const [value, setValue] = useState<string>(currentValue);
     const [isInputActive, setInputActiveStatus] = useState<boolean>(false);
-    const valid = useValidation(value, validations);
+    const valid = useValidation({ value, validations });
 
-    const onChange = (e: any) => {
+    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
     };
 
-    const onBlur = (e: any) => { // when leave input field
+    const onInputBlur = () => { // when leave input field
         setInputActiveStatus(true);
     };
 
@@ -22,8 +22,8 @@ export function useInput(currentValue: string, validations: any) {
         value,
         isInputActive,
         ...valid,
-        onChange,
-        onBlur,
+        onInputChange,
+        onInputBlur
     };
 
 }

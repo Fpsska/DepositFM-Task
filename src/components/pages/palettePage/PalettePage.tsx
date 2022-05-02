@@ -20,8 +20,8 @@ const PalettePage: React.FC = () => {
         dispatch(addCurrentPaletteTemplate(
             {
                 id: String(Math.floor(Math.random() * 1000)),
-                color: initaialColor,
-            },
+                color: initaialColor
+            }
         ));
         dispatch(setPaletteVisibleStatus(true));
         dispatch(setColorPickerStatus(true));

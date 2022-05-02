@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { setResponseInfo } from '../app/slices/formSlice';
 
+// /. imports
+
 export function usePostRequest() {
     const dispatch = useDispatch();
     const request = useCallback(async (url, data) => {
@@ -10,9 +12,9 @@ export function usePostRequest() {
             const response = await fetch(url, {     // response configuration
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(data)
             });
 
             if (!response.ok) {     // response validation

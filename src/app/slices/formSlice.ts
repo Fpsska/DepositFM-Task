@@ -13,7 +13,7 @@ interface formSliceTypes {
     currentPatronymic: string,
     currentResponseInfo: any, // { id: number, message: string, status: string }[]
     currentRequestInfo: any,
-    formInputs: formInputsTypes[],
+    formInputs: formInputsTypes[]
 }
 
 // /. interfaces
@@ -24,20 +24,20 @@ const initialState: formSliceTypes = {
             id: 1,
             htmlFor: 'name',
             text: 'Name',
-            placeholder: 'Your Name',
+            placeholder: 'Your Name'
         },
         {
             id: 2,
             htmlFor: 'surname',
             text: 'Surname',
-            placeholder: 'Your Surname',
+            placeholder: 'Your Surname'
         },
         {
             id: 3,
             htmlFor: 'patronymic',
             text: 'Patronymic',
-            placeholder: 'Your Patronymic',
-        },
+            placeholder: 'Your Patronymic'
+        }
     ],
     isImageSelected: false,
     isFormSubmited: false,
@@ -46,7 +46,7 @@ const initialState: formSliceTypes = {
     currentSurname: '',
     currentPatronymic: '',
     currentResponseInfo: [],
-    currentRequestInfo: [],
+    currentRequestInfo: []
 };
 
 // /. initialState
@@ -79,8 +79,8 @@ const formSlice = createSlice({
         },
         setRequestInfo(state, action: PayloadAction<any>) {
             state.currentRequestInfo = action.payload;
-        },
-    },
+        }
+    }
 });
 
 export const {
@@ -91,7 +91,7 @@ export const {
     setSurnameValue,
     setPatronymicValue,
     setResponseInfo,
-    setRequestInfo,
+    setRequestInfo
 } = formSlice.actions;
 
 

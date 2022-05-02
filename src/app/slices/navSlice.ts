@@ -5,13 +5,13 @@ import { navLinksTypes } from '../../Types/navSliceTypes';
 // /. imports
 
 interface navSliceTypes {
-  navLinks: navLinksTypes[];
-  isFormPage: Boolean;
+  navLinks: navLinksTypes[],
+  isFormPage: Boolean
 }
 
 interface setNavLinkActiveStatusTypes {
-  id: number;
-  status: boolean;
+  id: number,
+  status: boolean
 }
 
 // /. interfaces
@@ -22,16 +22,16 @@ const initialState: navSliceTypes = {
       id: 1,
       text: 'Form',
       link: '/DepositFM-Task/',
-      isActive: true,
+      isActive: true
     },
     {
       id: 2,
       text: 'Palette',
       link: 'Palette',
-      isActive: false,
-    },
+      isActive: false
+    }
   ],
-  isFormPage: true,
+  isFormPage: true
 };
 
 // /. initialState
@@ -52,13 +52,13 @@ const navSlice = createSlice({
     },
     setFormPageStatus(state, action: PayloadAction<boolean>) {
       state.isFormPage = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
   setNavLinkActiveStatus,
-  setFormPageStatus,
+  setFormPageStatus
 } = navSlice.actions;
 
 

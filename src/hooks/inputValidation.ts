@@ -1,7 +1,20 @@
 import { useState, useEffect } from 'react';
 
+// /. imports
 
-export function useValidation(currentValue: string, validations: any[]) {
+interface propTypes {
+    value: string,
+    validations: any[]
+}
+
+// /. interfaces
+
+export function useValidation(props: propTypes) {
+
+    const {
+        value,
+        validations
+    } = props;
 
     const [minLengthError, setMinLengthError] = useState<boolean>(false);
     const [maxLengthError, setMaxLengthError] = useState<boolean>(false);
@@ -9,22 +22,20 @@ export function useValidation(currentValue: string, validations: any[]) {
     const [isInputValid, setInputValidStatus] = useState<boolean>(false);
 
     useEffect(() => {
-
         for (const validation in validations) {
             switch (validation) {
                 case 'minLength':
-                    currentValue.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
+                    value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
                     break;
                 case 'maxLength':
-                    currentValue.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false);
+                    value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false);
                     break;
                 case 'empty':
-                    currentValue ? setEmptyError(false) : setEmptyError(true);
+                    value ? setEmptyError(false) : setEmptyError(true);
                     break;
             }
         }
-
-    }, [currentValue, validations]);
+    }, [value, validations]);
 
     useEffect(() => {
         if (minLengthError || maxLengthError || emptyError) {
@@ -38,7 +49,7 @@ export function useValidation(currentValue: string, validations: any[]) {
         minLengthError,
         maxLengthError,
         emptyError,
-        isInputValid,
+        isInputValid
     };
 
 }
