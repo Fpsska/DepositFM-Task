@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { useValidation } from './inputValidation';
 
@@ -10,8 +10,8 @@ export function useInput(currentValue: string, validations: any) {
     const [isInputActive, setInputActiveStatus] = useState<boolean>(false);
     const valid = useValidation({ value, validations });
 
-    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
+    const onInputChange = (e: string) => { // get correct string value from event
+        setValue(e);
     };
 
     const onInputBlur = () => { // when leave input field

@@ -8,9 +8,6 @@ interface formSliceTypes {
     isImageSelected: boolean,
     isFormSubmited: boolean,
     currentImageURL: string,
-    currentName: string,
-    currentSurname: string
-    currentPatronymic: string,
     currentResponseInfo: any, // { id: number, message: string, status: string }[]
     currentRequestInfo: any,
     formInputs: formInputsTypes[]
@@ -42,9 +39,6 @@ const initialState: formSliceTypes = {
     isImageSelected: false,
     isFormSubmited: false,
     currentImageURL: '',
-    currentName: '',
-    currentSurname: '',
-    currentPatronymic: '',
     currentResponseInfo: [],
     currentRequestInfo: []
 };
@@ -64,15 +58,6 @@ const formSlice = createSlice({
         setFormSubmitStatus(state, action: PayloadAction<boolean>) {
             state.isFormSubmited = action.payload;
         },
-        setNameValue(state, action: PayloadAction<string>) {
-            state.currentName = action.payload;
-        },
-        setSurnameValue(state, action: PayloadAction<string>) {
-            state.currentSurname = action.payload;
-        },
-        setPatronymicValue(state, action: PayloadAction<string>) {
-            state.currentPatronymic = action.payload;
-        },
         setResponseInfo(state, action: PayloadAction<any>) { // { id: number, message: string, status: string }[]
             state.currentResponseInfo = action.payload;
             // state.currentResponseInfo.splice(0, 1, action.payload);
@@ -87,9 +72,6 @@ export const {
     setImageSelectedStatus,
     setImageURL,
     setFormSubmitStatus,
-    setNameValue,
-    setSurnameValue,
-    setPatronymicValue,
     setResponseInfo,
     setRequestInfo
 } = formSlice.actions;
