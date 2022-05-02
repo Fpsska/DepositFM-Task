@@ -16,39 +16,52 @@ export function useValidation(props: propTypes) {
         validations
     } = props;
 
+    const [emptyError, setEmptyError] = useState<boolean>(false);
     const [minLengthError, setMinLengthError] = useState<boolean>(false);
     const [maxLengthError, setMaxLengthError] = useState<boolean>(false);
-    const [emptyError, setEmptyError] = useState<boolean>(false);
+
+    const [minLengthCount, setminLengthCount] = useState<number>(0);
+    const [maxLengthCount, setmaxLengthCount] = useState<number>(0);
+
     const [isInputValid, setInputValidStatus] = useState<boolean>(false);
 
     useEffect(() => {
         for (const validation in validations) {
             switch (validation) {
+                case 'empty':
+                    if (value) {
+                        setEmptyError(false);
+                    } else {
+                        setEmptyError(true);
+                        setMinLengthError(false);
+                    }
+                    break;
                 case 'minLength':
                     value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
+                    setminLengthCount(validations[validation]);
                     break;
                 case 'maxLength':
                     value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false);
-                    break;
-                case 'empty':
-                    value ? setEmptyError(false) : setEmptyError(true);
+                    setmaxLengthCount(validations[validation]);
                     break;
             }
         }
     }, [value, validations]);
 
     useEffect(() => {
-        if (minLengthError || maxLengthError || emptyError) {
+        if (emptyError || minLengthError || maxLengthError) {
             setInputValidStatus(false);
         } else {
             setInputValidStatus(true);
         }
-    }, [minLengthError, maxLengthError, emptyError]);
+    }, [emptyError, minLengthError, maxLengthError]);
 
     return {
-        minLengthError,
-        maxLengthError,
         emptyError,
+        minLengthError,
+        minLengthCount,
+        maxLengthError,
+        maxLengthCount,
         isInputValid
     };
 

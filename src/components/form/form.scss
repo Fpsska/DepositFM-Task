@@ -62,7 +62,7 @@
         border-radius: 10px;
         color: #fff;
         background: rgba(118, 118, 128, 0.24);
-        border: none;
+        border: 1px solid transparent;
         outline: none;
         cursor: pointer;
         &::placeholder {
@@ -73,8 +73,12 @@
         }
     }
     &__warn {
-        color: red;
+        color: rgba($color: red, $alpha: 1);
     }
+}
+.field__input.no-valid {
+    color: rgba($color: red, $alpha: 1);
+    border: 1px solid rgba($color: red, $alpha: 0.35);
 }
 
 .file {
