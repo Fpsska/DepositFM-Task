@@ -32,12 +32,7 @@ export function useValidation(props: propTypes) {
         for (const validation in validations) {
             switch (validation) {
                 case 'emptyValue':
-                    if (value) {
-                        setEmptyError(false);
-                    } else {
-                        setEmptyError(true);
-                        setMinLengthError(false);
-                    }
+                    value ? setEmptyError(false) : setEmptyError(true);
                     break;
                 case 'emptyImage':
                     isImageSelected ? setEmptyImageError(false) : setEmptyImageError(true);

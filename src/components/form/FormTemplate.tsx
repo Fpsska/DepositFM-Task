@@ -52,15 +52,21 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = (props) => {
         <div className="form__field field">
             <div className="field__title">
                 <label className="field__label" htmlFor="name">{text}</label>
-                {errInputName.emptyError
-                    ? <span className="field__warn">field cannot be empty</span>
-                    : <></>}
-                {errInputName.minLengthError // errInputName.isInputActive && 
-                    ? <span className="field__warn">{`minimum length is should be ${errInputName.minLengthCount} letter`}</span>
-                    : <></>}
-                {errInputName.maxLengthError
-                    ? <span className="field__warn">{`maximum length is should be less ${errInputName.maxLengthCount} letter`}</span>
-                    : <></>}
+                <>
+                    {errInputName.emptyError
+                        ? <span className="field__warn">field cannot be empty</span>
+                        :
+                        <>
+                            {errInputName.minLengthError
+                                ? <span className="field__warn">{`minimum length is should be ${errInputName.minLengthCount} letter`}</span>
+                                : <></>
+                            }
+                        </>
+                    }
+                    {errInputName.maxLengthError
+                        ? <span className="field__warn">{`maximum length is should be less ${errInputName.maxLengthCount} letter`}</span>
+                        : <></>}
+                </>
             </div>
             <input className={errInputName.isInputValid ? 'field__input' : 'field__input no-valid'} type="text"
                 name={htmlFor}
