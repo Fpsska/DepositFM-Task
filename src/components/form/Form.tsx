@@ -64,6 +64,10 @@ const Form: React.FC = () => {
             });
     };
 
+    const deleteImage = (): void => {
+        dispatch(setImageSelectedStatus(false));
+    };
+
     return (
         <form ref={form} className="form" onSubmit={handleFormSubmit}>
             <div className="form__wrapper">
@@ -81,16 +85,21 @@ const Form: React.FC = () => {
                     );
                 })}
                 <div className="form__field file">
-                    <div className="field__title">
+
+                    <div className="file__title">
                         <span className="file__text">Photo</span>
                         {imageInput.emptyImageError
-                            ? <span className="field__warn">image is required</span>
+                            ? <span className="file__warn">image is required</span>
                             : <></>}
                     </div>
+
                     <>
                         {isImageSelected
                             ?
-                            <img className="file__image" src={currentImageURL} alt="chosenImage" />
+                            <div className="file__preview">
+                                <img className="file__image" src={currentImageURL} alt="chosenImage" />
+                                <button className="file__button file__button--delete" onClick={deleteImage}></button>
+                            </div>
                             :
                             <>
                                 <input className="file__input" type="file" name="file" id="file" accept="image/*"
