@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 interface propTypes {
     value: string,
+    isImageSelected: boolean,
     validations: any[]
 }
 
@@ -13,10 +14,12 @@ export function useValidation(props: propTypes) {
 
     const {
         value,
+        isImageSelected,
         validations
     } = props;
 
     const [emptyError, setEmptyError] = useState<boolean>(false);
+    const [emptyImageError, setEmptyImageError] = useState<boolean>(isImageSelected);
     const [minLengthError, setMinLengthError] = useState<boolean>(false);
     const [maxLengthError, setMaxLengthError] = useState<boolean>(false);
 
@@ -28,13 +31,16 @@ export function useValidation(props: propTypes) {
     useEffect(() => {
         for (const validation in validations) {
             switch (validation) {
-                case 'empty':
+                case 'emptyValue':
                     if (value) {
                         setEmptyError(false);
                     } else {
                         setEmptyError(true);
                         setMinLengthError(false);
                     }
+                    break;
+                case 'emptyImage':
+                    isImageSelected ? setEmptyImageError(false) : setEmptyImageError(true);
                     break;
                 case 'minLength':
                     value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
@@ -46,18 +52,19 @@ export function useValidation(props: propTypes) {
                     break;
             }
         }
-    }, [value, validations]);
+    }, [value, isImageSelected, validations]);
 
     useEffect(() => {
-        if (emptyError || minLengthError || maxLengthError) {
+        if (emptyError || emptyImageError || minLengthError || maxLengthError) {
             setInputValidStatus(false);
         } else {
             setInputValidStatus(true);
         }
-    }, [emptyError, minLengthError, maxLengthError]);
+    }, [emptyError, emptyImageError, minLengthError, maxLengthError]);
 
     return {
         emptyError,
+        emptyImageError,
         minLengthError,
         minLengthCount,
         maxLengthError,

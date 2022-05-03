@@ -104,6 +104,7 @@
         height: 86px;
         padding: 0;
         background-color: rgba(118, 118, 128, 0.24);
+        border: 1px solid rgba($color: red, $alpha: 0.35);
         border-radius: 10px;
         transform: scale(1);
         transition: transform 0.2s linear;

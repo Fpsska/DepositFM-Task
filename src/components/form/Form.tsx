@@ -20,9 +20,10 @@ const Form: React.FC = () => {
     const form = useRef<HTMLFormElement>(null!);
     // 
     const { request } = usePostRequest();
-    const inputName = useInput('', { empty: true, minLength: 3, maxLength: 10 });
-    const inputSurname = useInput('', { empty: true, minLength: 4, maxLength: 11 });
-    const inputPatronymic = useInput('', { empty: true, minLength: 5, maxLength: 14 });
+    const inputName = useInput('', isImageSelected, { emptyValue: true, minLength: 3, maxLength: 10 });
+    const inputSurname = useInput('', isImageSelected, { emptyValue: true, minLength: 4, maxLength: 11 });
+    const inputPatronymic = useInput('', isImageSelected, { emptyValue: true, minLength: 5, maxLength: 14 });
+    const imageInput = useInput('', isImageSelected, { emptyImage: true });
     // 
     const setNewImage = (e: any): void => { // React.FormEvent<HTMLInputElement> / React.FormEvent<HTMLInputElement> / React.ChangeEvent<HTMLInputElement>
         const fileReader = new FileReader();
@@ -80,7 +81,12 @@ const Form: React.FC = () => {
                     );
                 })}
                 <div className="form__field file">
-                    <span className="file__text">Photo</span>
+                    <div className="field__title">
+                        <span className="file__text">Photo</span>
+                        {imageInput.emptyImageError
+                            ? <span className="field__warn">image is required</span>
+                            : <></>}
+                    </div>
                     <>
                         {isImageSelected
                             ?
@@ -98,7 +104,11 @@ const Form: React.FC = () => {
                 </div>
 
                 <button className="form__button"
-                    disabled={!inputName.isInputValid || !inputSurname.isInputValid || !inputPatronymic.isInputValid || !isImageSelected}
+                    disabled={
+                        !inputName.isInputValid ||
+                        !inputSurname.isInputValid ||
+                        !inputPatronymic.isInputValid ||
+                        !imageInput.isInputValid}
                 >
                     Save
                 </button>
