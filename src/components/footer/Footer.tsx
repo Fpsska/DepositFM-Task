@@ -24,8 +24,12 @@ const Footer: React.FC = () => {
                     <div className="response">
                         <span className="response__text">Response</span>
                         <div className="response__information">
-                            <span className="response__status">{`Status: ${isFormSubmited ? currentRequestInfo.status : currentResponseInfo.status}`}</span>
-                            <span className="response__message">{`Message:  ${isFormSubmited ? currentRequestInfo.message : currentResponseInfo.message}`}</span>
+                            <span className="response__status">
+                                {`Status: ${isFormSubmited ? currentRequestInfo.status : currentResponseInfo.status}`}
+                            </span>
+                            <span className="response__message">
+                                {`Message:  ${isFormSubmited ? currentRequestInfo.message : currentResponseInfo.message}`}
+                            </span>
                         </div>
                     </div>
                     :

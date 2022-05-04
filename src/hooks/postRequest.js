@@ -25,7 +25,9 @@ export function usePostRequest() {
             return output;
 
         } catch (err) {
-            dispatch(setResponseInfo({ message: err.message, status: 'error' }));
+            setTimeout(() => {
+                dispatch(setResponseInfo({ message: err.message, status: 'error' }));
+            }, 3000);
         }
     }, []);
 

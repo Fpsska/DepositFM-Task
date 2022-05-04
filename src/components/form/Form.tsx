@@ -1,7 +1,14 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setImageSelectedStatus, setImageURL, setFormSubmitStatus, setRequestInfo } from '../../app/slices/formSlice';
+import {
+    setImageSelectedStatus,
+    setImageURL,
+    setFormSubmitStatus,
+    setRequestInfo,
+    setPreloaderVisibleStatus
+} from '../../app/slices/formSlice';
+
 import { usePostRequest } from '../../hooks/postRequest';
 
 import { RootState } from '../../app/store';
@@ -38,6 +45,7 @@ const Form: React.FC = () => {
 
     const handleFormSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
+        dispatch(setPreloaderVisibleStatus(true));
 
         request('https://test-job.pixli.app/send.php', {
             action: 'test_data',
@@ -53,11 +61,9 @@ const Form: React.FC = () => {
         })
             .then((data) => {
                 dispatch(setRequestInfo({ message: data.msg, status: data.status }));
-            })
-            .then(() => {
-                form.current.reset();
-                dispatch(setImageSelectedStatus(false));
-                dispatch(setFormSubmitStatus(true));
+                setTimeout(() => {
+                    dispatch(setFormSubmitStatus(true));
+                }, 3000);
             })
             .catch((err) => {
                 dispatch(setRequestInfo({ message: err.msg, status: err.status }));
