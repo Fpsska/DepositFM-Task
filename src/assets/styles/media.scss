@@ -1,9 +1,10 @@
 @media screen and (max-width: 1366px) {
-    .form__wrapper,
     .footer__wrapper {
-        max-width: 50%;
+        max-width: 100%;
     }
-    
+    .form-page__form {
+        flex: 0 0 50%;
+    }
     .palette-page__workplace {
         flex: 0 0 50%;
     }
@@ -26,12 +27,14 @@
     .nav__menu {
         justify-content: center;
     }
-    .form__wrapper,
-    .footer__wrapper {
-        max-width: 100%;
-    }
     .palette-page__preview {
         display: none;
+    }
+    .form-page__preloader {
+        display: none;
+    }
+    .form-page__form {
+        flex: 0 0 100%;
     }
     .palette-page__workplace {
         flex: 0 0 100%;

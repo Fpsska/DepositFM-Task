@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #1F2223;
+    background-color: #1f2223;
     font-family: Gotham Pro, sans-serif;
     font-size: 14px;
     color: #fff;
@@ -46,6 +46,18 @@ button {
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
+}
+.form-page__wrapper {
+    display: flex;
+}
+.form-page__form {
+    flex: 0 0 27.5%;
+}
+.form-page__preloader {
+    flex: 1 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header {
