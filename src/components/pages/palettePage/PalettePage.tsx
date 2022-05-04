@@ -9,6 +9,8 @@ import './palettePage.scss';
 
 import { RootState } from '../../../app/store';
 
+import palette from '../../../assets/images/palette.png';
+
 const PalettePage: React.FC = () => {
     const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector((state: RootState) => state.paletteSlice);
     const [limit, setLimit] = useState(false);
@@ -70,19 +72,24 @@ const PalettePage: React.FC = () => {
     return (
         <div className="palette-page">
             <div className="palette-page__wrapper">
-                <div className="palette-page__palette">
-                    <Palette />
+                <div className="palette-page__workplace">
+                    <div className="palette-page__palette">
+                        <Palette />
+                    </div>
+                    <div ref={colorPicker} className="palette-page__picker">
+                        {
+                            isColorPickerVisible
+                                ?
+                                <ChromePicker color={initaialColor} onChange={(updatedColor: { hex: string }) => setCurrentPickerColor(updatedColor.hex)} />
+                                :
+                                <></>
+                        }
+                    </div>
+                    <button className="palette-page__button" disabled={limit ? true : false} onClick={addPaletteTemplate}>Add color</button>
                 </div>
-                <div ref={colorPicker} className="palette-page__picker">
-                    {
-                        isColorPickerVisible
-                            ?
-                            <ChromePicker color={initaialColor} onChange={(updatedColor: { hex: string }) => setCurrentPickerColor(updatedColor.hex)} />
-                            :
-                            <></>
-                    }
+                <div className="palette-page__preview">
+                    <img className="palette-page__image" src={palette} alt="palette" />
                 </div>
-                <button className="palette-page__button" disabled={limit ? true : false} onClick={addPaletteTemplate}>Add color</button>
             </div>
         </div>
     );
