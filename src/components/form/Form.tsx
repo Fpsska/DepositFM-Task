@@ -6,7 +6,7 @@ import { usePostRequest } from '../../hooks/postRequest';
 
 import { RootState } from '../../app/store';
 
-import { useInput } from '../../hooks/defineInput';
+import { useInput } from '../../hooks/useInput';
 
 import FormTemplate from './FormTemplate';
 
@@ -40,7 +40,7 @@ const Form: React.FC = () => {
         e.preventDefault();
 
         request('https://test-job.pixli.app/send.php', {
-            action: 'send_data',
+            action: 'test_data',
             id: 1,
             image: currentImageURL,
             contacts: [
