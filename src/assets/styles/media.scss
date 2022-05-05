@@ -24,13 +24,16 @@
     .page {
         padding: 20px 30px;
     }
+    .page__preloader {
+        display: flex;
+    }
     .nav__menu {
         justify-content: center;
     }
     .palette-page__preview {
         display: none;
     }
-    .form-page__preloader {
+    .form-page__preloader { 
         display: none;
     }
     .form-page__form {
@@ -42,7 +45,7 @@
     .palette__wrapper {
         justify-content: center;
     }
-    .file__image {
+    .file__image.file__image {
         height: 165px;
     }
     .chrome-picker.chrome-picker {

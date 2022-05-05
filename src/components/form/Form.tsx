@@ -21,7 +21,7 @@ import './form.scss';
 
 
 const Form: React.FC = () => {
-    const { formInputs, isImageSelected, currentImageURL } = useSelector((state: RootState) => state.formSlice);
+    const { formInputs, isImageSelected, currentImageURL, isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
     const dispatch = useDispatch();
     const form = useRef<HTMLFormElement>(null!);
     // 
@@ -78,6 +78,7 @@ const Form: React.FC = () => {
                             inputName={inputName}
                             inputSurname={inputSurname}
                             inputPatronymic={inputPatronymic}
+                            isPreloaderVisible={isPreloaderVisible}
                         />
                     );
                 })}
@@ -95,12 +96,13 @@ const Form: React.FC = () => {
                             ?
                             <div className="file__preview">
                                 <img className="file__image" src={currentImageURL} alt="chosenImage" />
-                                <button className="file__button file__button--delete" onClick={deleteImage}></button>
+                                <button className="file__button file__button--delete" disabled={isPreloaderVisible} onClick={deleteImage}></button>
                             </div>
                             :
                             <>
                                 <input className="file__input" type="file" name="file" id="file" accept="image/*"
                                     onChange={setNewImage}
+                                    disabled={isPreloaderVisible}
                                     required
                                 />
                                 <label className="file__label" htmlFor="file"></label>
@@ -114,7 +116,9 @@ const Form: React.FC = () => {
                         !inputName.isInputValid ||
                         !inputSurname.isInputValid ||
                         !inputPatronymic.isInputValid ||
-                        !imageInput.isInputValid}
+                        !imageInput.isInputValid ||
+                        isPreloaderVisible
+                    }
                 >
                     Save
                 </button>

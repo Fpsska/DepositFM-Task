@@ -30,19 +30,22 @@ const Footer: React.FC = () => {
                 {isFormPage
                     ?
                     <div className="response">
-                        <span className="response__text">Response</span>
-                        <div className="response__information">
+                        <div className="response__wrapper">
+                            <span className="response__text">Response</span>
+                            <div className="response__information">
 
-                            <div className="response__status status">
-                                <span className="status__title">Status:{' '}</span>
-                                <span className={isResponseIncorrect ? 'status__body error' : 'status__body'}>{isFormSubmited ? currentResponseInfo.status : 'waiting for submit'}</span>
+                                <div className="response__status status">
+                                    <span className="status__title">Status:{' '}</span>
+                                    <span className={isResponseIncorrect ? 'status__body error' : 'status__body'}>{isFormSubmited ? currentResponseInfo.status : 'waiting for submit'}</span>
+                                </div>
+
+                                <span className="response__message">
+                                    {`Message:  ${isFormSubmited ? currentResponseInfo.message : 'waiting for submit'}`}
+                                </span>
+
                             </div>
-
-                            <span className="response__message">
-                                {`Message:  ${isFormSubmited ? currentResponseInfo.message : 'waiting for submit'}`}
-                            </span>
-
                         </div>
+
                     </div>
                     :
                     <></>

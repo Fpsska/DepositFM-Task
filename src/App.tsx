@@ -8,7 +8,7 @@ import './assets/styles/style.scss';
 import './assets/styles/media.scss';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Routes>
@@ -19,6 +19,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

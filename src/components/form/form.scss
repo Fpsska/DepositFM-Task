@@ -122,10 +122,6 @@
             }
         }
     }
-    &__image {
-        height: 110px;
-        object-fit: contain;
-    }
     &__warn {
         color: rgba($color: red, $alpha: 1);
     }
@@ -153,4 +149,9 @@
         background-position: center;
         background-repeat: no-repeat;
     }
+}
+.file__image.file__image {
+    height: 110px;
+    object-fit: contain;
+    margin: 0;
 }

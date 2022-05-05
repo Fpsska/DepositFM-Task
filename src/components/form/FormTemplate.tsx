@@ -8,7 +8,8 @@ interface FormTemplatePropTypes {
     htmlFor: string,
     inputName: any,
     inputSurname: any,
-    inputPatronymic: any
+    inputPatronymic: any,
+    isPreloaderVisible: boolean
 }
 
 // /. interfaces
@@ -19,7 +20,8 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = (props) => {
         htmlFor,
         inputName,
         inputSurname,
-        inputPatronymic
+        inputPatronymic,
+        isPreloaderVisible
     } = props;
 
     const [errInputName, setErrInputName] = useState<any>(inputName);
@@ -72,10 +74,12 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = (props) => {
                 name={htmlFor}
                 id={htmlFor}
                 placeholder={placeholder}
+                disabled={isPreloaderVisible}
+                required
                 value={errInputName.value}
                 onChange={e => inputHandler(e)}
                 onBlur={() => errInputName.onInputBlur()}
-                required />
+            />
         </div>
     );
 };

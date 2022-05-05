@@ -9,6 +9,7 @@ import './nav.scss';
 
 const Nav: React.FC = () => {
     const { navLinks } = useSelector((state: RootState) => state.navSlice);
+    const { isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
     // 
     return (
         <nav className="nav">
@@ -21,6 +22,7 @@ const Nav: React.FC = () => {
                             text={item.text}
                             link={item.link}
                             isActive={item.isActive}
+                            isPreloaderVisible={isPreloaderVisible}
                         />
                     );
                 })}
