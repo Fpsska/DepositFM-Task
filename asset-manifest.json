@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/DepositFM-Task/static/css/main.6fa1a3ef.css",
-    "main.js": "/DepositFM-Task/static/js/main.ba1a39c5.js",
+    "main.css": "/DepositFM-Task/static/css/main.9ea9eb7b.css",
+    "main.js": "/DepositFM-Task/static/js/main.5bb8fe65.js",
+    "static/media/palette.png": "/DepositFM-Task/static/media/palette.c5fe9ed4f9319f784aba.png",
     "static/media/image-add_icon.svg": "/DepositFM-Task/static/media/image-add_icon.adaec920925227754ec1.svg",
     "static/media/close_icon.svg": "/DepositFM-Task/static/media/close_icon.f8c2dd582a0004c10d46.svg",
     "index.html": "/DepositFM-Task/index.html",
-    "main.6fa1a3ef.css.map": "/DepositFM-Task/static/css/main.6fa1a3ef.css.map",
-    "main.ba1a39c5.js.map": "/DepositFM-Task/static/js/main.ba1a39c5.js.map"
+    "main.9ea9eb7b.css.map": "/DepositFM-Task/static/css/main.9ea9eb7b.css.map",
+    "main.5bb8fe65.js.map": "/DepositFM-Task/static/js/main.5bb8fe65.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fa1a3ef.css",
-    "static/js/main.ba1a39c5.js"
+    "static/css/main.9ea9eb7b.css",
+    "static/js/main.5bb8fe65.js"
   ]
 }
