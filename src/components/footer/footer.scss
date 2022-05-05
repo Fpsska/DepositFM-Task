@@ -42,3 +42,7 @@
         }
     }
 }
+.response__status.error {
+    color: rgba($color: red, $alpha: 1);
+}
+

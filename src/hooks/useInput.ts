@@ -28,7 +28,7 @@ export function useInput(currentValue: string, isImageSelected: boolean, validat
         setInputActiveStatus(true);
     };
 
-    useEffect(() => { // clear input fields, when form is submitted
+    useEffect(() => { // clear input fields, when form is submitted & hide preloader
         setTimeout(() => {
             dispatch(setPreloaderVisibleStatus(false));
         }, 3000);

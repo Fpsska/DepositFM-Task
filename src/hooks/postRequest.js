@@ -7,6 +7,7 @@ import { setResponseInfo } from '../app/slices/formSlice';
 
 export function usePostRequest() {
     const dispatch = useDispatch();
+    
     const request = useCallback(async (url, data) => {
         try {
             const response = await fetch(url, {     // response configuration
@@ -22,6 +23,11 @@ export function usePostRequest() {
             }
 
             const output = await response.json();
+
+            setTimeout(() => {
+                dispatch(setResponseInfo({ message: output.msg, status: output.status }));
+            }, 3000);
+
             return output;
 
         } catch (err) {

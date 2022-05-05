@@ -5,7 +5,6 @@ import {
     setImageSelectedStatus,
     setImageURL,
     setFormSubmitStatus,
-    setRequestInfo,
     setPreloaderVisibleStatus
 } from '../../app/slices/formSlice';
 
@@ -46,6 +45,7 @@ const Form: React.FC = () => {
     const handleFormSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         dispatch(setPreloaderVisibleStatus(true));
+        dispatch(setFormSubmitStatus(true));
 
         request('https://test-job.pixli.app/send.php', {
             action: 'test_data',
@@ -58,16 +58,7 @@ const Form: React.FC = () => {
                     currentPatronymic: inputPatronymic.value
                 }
             ]
-        })
-            .then((data) => {
-                dispatch(setRequestInfo({ message: data.msg, status: data.status }));
-                setTimeout(() => {
-                    dispatch(setFormSubmitStatus(true));
-                }, 3000);
-            })
-            .catch((err) => {
-                dispatch(setRequestInfo({ message: err.msg, status: err.status }));
-            });
+        });
     };
 
     const deleteImage = (): void => {
