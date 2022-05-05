@@ -8,6 +8,7 @@ interface formSliceTypes {
     isImageSelected: boolean,
     isFormSubmited: boolean,
     isPreloaderVisible: boolean,
+    isResponseIncorrect: boolean,
     currentImageURL: string,
     currentResponseInfo: any, // { id: number, message: string, status: string }[]
     formInputs: formInputsTypes[]
@@ -39,6 +40,7 @@ const initialState: formSliceTypes = {
     isImageSelected: false,
     isFormSubmited: false,
     isPreloaderVisible: false,
+    isResponseIncorrect: false,
     currentImageURL: '',
     currentResponseInfo: []
 };
@@ -61,6 +63,9 @@ const formSlice = createSlice({
         setPreloaderVisibleStatus(state, action: PayloadAction<boolean>) {
             state.isPreloaderVisible = action.payload;
         },
+        setResponseErrorStatus(state, action: PayloadAction<boolean>) {
+            state.isResponseIncorrect = action.payload;
+        },
         setResponseInfo(state, action: PayloadAction<any>) { // { id: number, message: string, status: string }[]
             state.currentResponseInfo = action.payload;
             // state.currentResponseInfo.splice(0, 1, action.payload);
@@ -73,6 +78,7 @@ export const {
     setImageURL,
     setFormSubmitStatus,
     setPreloaderVisibleStatus,
+    setResponseErrorStatus,
     setResponseInfo
 } = formSlice.actions;
 

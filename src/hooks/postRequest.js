@@ -1,13 +1,17 @@
-import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { setResponseInfo } from '../app/slices/formSlice';
+import { setResponseInfo, setResponseErrorStatus } from '../app/slices/formSlice';
+
+
+
 
 // /. imports
 
 export function usePostRequest() {
     const dispatch = useDispatch();
-    
+    const { currentResponseInfo } = useSelector((state) => state.formSlice);
+
     const request = useCallback(async (url, data) => {
         try {
             const response = await fetch(url, {     // response configuration
@@ -36,6 +40,14 @@ export function usePostRequest() {
             }, 3000);
         }
     }, []);
+
+    useEffect(() => {
+        if (currentResponseInfo.status === 'error') {
+            dispatch(setResponseErrorStatus(true));
+        } else {
+            dispatch(setResponseErrorStatus(false));
+        }
+    }, [currentResponseInfo]);
 
     return { request };
 }

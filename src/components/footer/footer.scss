@@ -42,7 +42,13 @@
         }
     }
 }
-.response__status.error {
+
+.status {
+    &__title,
+    &__body {
+        color: #fff;
+    }
+}
+.status__body.error {
     color: rgba($color: red, $alpha: 1);
 }
-

@@ -2,13 +2,15 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setResponseInfo } from '../../app/slices/formSlice';
-import './footer.scss';
 
 import { RootState } from '../../app/store';
 
+import './footer.scss';
+
+
 const Footer: React.FC = () => {
     const { isFormPage } = useSelector((state: RootState) => state.navSlice);
-    const { currentResponseInfo, isFormSubmited } = useSelector((state: RootState) => state.formSlice);
+    const { currentResponseInfo, isResponseIncorrect, isFormSubmited } = useSelector((state: RootState) => state.formSlice);
     const dispatch = useDispatch();
     // 
     useEffect(() => {
@@ -33,7 +35,7 @@ const Footer: React.FC = () => {
 
                             <div className="response__status status">
                                 <span className="status__title">Status:{' '}</span>
-                                <span className="status__body">{isFormSubmited ? currentResponseInfo.status : 'waiting for submit'}</span>
+                                <span className={isResponseIncorrect ? 'status__body error' : 'status__body'}>{isFormSubmited ? currentResponseInfo.status : 'waiting for submit'}</span>
                             </div>
 
                             <span className="response__message">
