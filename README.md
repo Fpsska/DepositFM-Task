@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-###### _powered by [react-color](https://casesandberg.github.io/react-color/)_
+###### _powered by :_
+- [react-color](https://github.com/casesandberg/react-color)
+- [css-spinner](https://github.com/loadingio/css-spinner/)
 
 ### `Watch demo` _[DepositFM-Task](https://fpsska.github.io/DepositFM-Task/)_
 
