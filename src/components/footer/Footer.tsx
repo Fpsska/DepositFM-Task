@@ -7,6 +7,7 @@ import { RootState } from '../../app/store';
 
 import './footer.scss';
 
+// /. imports
 
 const Footer: React.FC = () => {
     const { isFormPage } = useSelector((state: RootState) => state.navSlice);

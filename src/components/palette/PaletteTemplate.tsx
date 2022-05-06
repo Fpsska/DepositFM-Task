@@ -3,11 +3,14 @@ import { useDispatch } from 'react-redux';
 
 import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from '../../app/slices/paletteSlice';
 
+// /. imports
 
 interface PaletteTemplatePropTypes {
     id: string,
     color: string
 }
+
+// /. interfaces
 
 const PaletteTemplate: React.FC<PaletteTemplatePropTypes> = ({ id, color }) => {
     const dispatch = useDispatch();

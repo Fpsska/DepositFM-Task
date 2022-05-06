@@ -16,9 +16,9 @@ import { useInput } from '../../hooks/useInput';
 
 import FormTemplate from './FormTemplate';
 
-
 import './form.scss';
 
+// /. imports
 
 const Form: React.FC = () => {
     const { formInputs, isImageSelected, currentImageURL, isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
@@ -64,7 +64,7 @@ const Form: React.FC = () => {
     const deleteImage = (): void => {
         dispatch(setImageSelectedStatus(false));
     };
-
+    // 
     return (
         <form ref={form} className="form" onSubmit={handleFormSubmit}>
             <div className="form__wrapper">

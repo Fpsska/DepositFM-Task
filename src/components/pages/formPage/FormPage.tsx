@@ -6,6 +6,8 @@ import Form from '../../form/Form';
 import Preloader from '../../common/Preloader/Preloader';
 import { RootState } from '../../../app/store';
 
+// /. imports
+
 const FormPage: React.FC = () => {
 
     const { isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);

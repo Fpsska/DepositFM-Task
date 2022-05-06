@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { setNavLinkActiveStatus } from '../../app/slices/navSlice';
 import { useDefinePage } from '../../hooks/definePage';
 
+// /. imports
 
 interface NavLinkPropTypes {
     id: number,
@@ -13,6 +14,8 @@ interface NavLinkPropTypes {
     isActive: boolean,
     isPreloaderVisible: boolean
 }
+
+// /. interfaces
 
 const NavLink: React.FC<NavLinkPropTypes> = ({ id, text, link, isActive, isPreloaderVisible }) => {
     const dispatch = useDispatch();

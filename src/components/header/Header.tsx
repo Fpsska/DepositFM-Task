@@ -1,7 +1,10 @@
 import React from 'react';
 
 import Nav from '../nav/Nav';
+
 import './header.scss';
+
+// /. imports
 
 const Header: React.FC = () => {
     return (

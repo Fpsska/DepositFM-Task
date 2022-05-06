@@ -4,6 +4,8 @@ import navSlice from './slices/navSlice';
 import formSlice from './slices/formSlice';
 import paletteSlice from './slices/paletteSlice';
 
+// /. imports
+
 export const store = configureStore({
   reducer: {
     navSlice: navSlice,

@@ -8,6 +8,7 @@ import { store } from './app/store';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 
+// /. imports
 
 const root = createRoot(document.getElementById('root')!);
 

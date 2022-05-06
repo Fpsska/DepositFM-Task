@@ -10,6 +10,7 @@ import Footer from '../footer/Footer';
 
 import Preloader from './Preloader/Preloader';
 
+// /. imports
 
 const Layout: React.FC = () => {
 

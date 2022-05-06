@@ -11,6 +11,8 @@ import { RootState } from '../../../app/store';
 
 import palette from '../../../assets/images/palette.png';
 
+// /. imports
+
 const PalettePage: React.FC = () => {
     const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector((state: RootState) => state.paletteSlice);
     const [limit, setLimit] = useState(false);

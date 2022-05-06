@@ -8,6 +8,8 @@ import './assets/styles/style.scss';
 import './assets/styles/media.scss';
 import './App.css';
 
+// /. imports
+
 const App: React.FC = () => {
   return (
     <div className="App">

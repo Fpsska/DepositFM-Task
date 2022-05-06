@@ -5,12 +5,4 @@ export interface formInputsTypes {
     placeholder: string,
 } 
 
-// interface currentResponseOBJTypes {
-//     id: number,
-//     message: string,
-//     status: string,
-// }
-// export interface currentResponseInfoTypes {
-//     [key:string]: currentResponseOBJTypes
-// }
 

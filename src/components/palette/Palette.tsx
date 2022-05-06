@@ -7,6 +7,7 @@ import { RootState } from '../../app/store';
 import PaletteTemplate from './PaletteTemplate';
 import './palette.scss';
 
+// /. imports
 
 const Palette: React.FC = () => {
     const { currentPaletteData, isPaletteVisible } = useSelector((state: RootState) => state.paletteSlice);

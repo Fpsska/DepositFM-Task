@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 
 import NavLink from './NavLink';
+
 import './nav.scss';
 
+// /. imports
 
 const Nav: React.FC = () => {
     const { navLinks } = useSelector((state: RootState) => state.navSlice);
