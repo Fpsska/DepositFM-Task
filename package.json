@@ -5,9 +5,9 @@
   "homepage": "https://Fpsska.github.io/DepositFM-Task",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.1.1",
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.2",
     "@types/react-router-dom": "^5.3.3",
@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-color": "^3.0.6"
+    "@types/react-color": "^3.0.6",
+    "enzyme": "^3.11.0"
   }
 }

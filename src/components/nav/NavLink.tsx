@@ -17,7 +17,16 @@ interface NavLinkPropTypes {
 
 // /. interfaces
 
-const NavLink: React.FC<NavLinkPropTypes> = ({ id, text, link, isActive, isPreloaderVisible }) => {
+const NavLink: React.FC<NavLinkPropTypes> = (props) => {
+
+    const { 
+        id,
+        text,
+        link,
+        isActive,
+        isPreloaderVisible
+    } = props;
+    // 
     const dispatch = useDispatch();
     const { handlePageName } = useDefinePage();
     // 
@@ -32,7 +41,11 @@ const NavLink: React.FC<NavLinkPropTypes> = ({ id, text, link, isActive, isPrelo
         <li className="nav__item">
             <Link className={isActive ? 'nav__link active' : 'nav__link'}
                 to={isPreloaderVisible ? '' : link}
-                onClick={switchLinkActiveStatus}>{text}</Link>
+                onClick={switchLinkActiveStatus}
+                role="navigation"
+            >
+                {text}
+            </Link>
         </li>
     );
 };

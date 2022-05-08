@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 
-import Layout from './components/common/Layout';
-import FormPage from './components/pages/formPage/FormPage';
-import PalettePage from './components/pages/palettePage/PalettePage';
-import './assets/styles/style.scss';
-import './assets/styles/media.scss';
+import Layout from '../common/Layout';
+import FormPage from '../pages/formPage/FormPage';
+import PalettePage from '../pages/palettePage/PalettePage';
+import '../../assets/styles/style.scss';
+import '../../assets/styles/media.scss';
 import './App.css';
 
 // /. imports

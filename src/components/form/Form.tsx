@@ -47,7 +47,7 @@ const Form: React.FC = () => {
         dispatch(setPreloaderVisibleStatus(true));
         dispatch(setFormSubmitStatus(true));
 
-        request('https://test-job.pixli.app/send.php', {
+        request('https://test-job.pixli.app/send.php', { 
             action: 'test_data',
             id: 1,
             image: currentImageURL,
