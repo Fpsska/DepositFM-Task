@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 import Layout from '../common/Layout';
 import FormPage from '../pages/formPage/FormPage';
@@ -13,12 +14,14 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/DepositFM-Task" element={<Layout />}>
-          <Route index element={<FormPage />} />
-          <Route path="Palette" element={<PalettePage />} />
-        </Route>
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/DepositFM-Task" element={<Layout />}>
+            <Route index element={<FormPage />} />
+            <Route path="Palette" element={<PalettePage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
