@@ -19,7 +19,7 @@ const FormPage: React.FC = () => {
                     <Form />
                 </div>
                 {isPreloaderVisible
-                    ? <div className="form-page__preloader">
+                    ? <div className="form-page__preloader" data-testid="form-preloader">
                         <Preloader />
                     </div>
                     : <></>

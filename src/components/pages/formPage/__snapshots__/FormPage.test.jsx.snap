@@ -1,0 +1,293 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormPage component render component 1`] = `
+<div>
+  <div
+    class="form-page"
+  >
+    <div
+      class="form-page__wrapper"
+    >
+      <div
+        class="form-page__form"
+      >
+        <form
+          class="form"
+        >
+          <div
+            class="form__wrapper"
+          >
+            <div
+              class="form__field field"
+            >
+              <div
+                class="field__title"
+              >
+                <label
+                  class="field__label"
+                  for="name"
+                >
+                  Name
+                </label>
+                <span
+                  class="field__warn"
+                >
+                  field cannot be empty
+                </span>
+              </div>
+              <input
+                class="field__input no-valid"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="form__field field"
+            >
+              <div
+                class="field__title"
+              >
+                <label
+                  class="field__label"
+                  for="name"
+                >
+                  Surname
+                </label>
+                <span
+                  class="field__warn"
+                >
+                  field cannot be empty
+                </span>
+              </div>
+              <input
+                class="field__input no-valid"
+                id="surname"
+                name="surname"
+                placeholder="Your Surname"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="form__field field"
+            >
+              <div
+                class="field__title"
+              >
+                <label
+                  class="field__label"
+                  for="name"
+                >
+                  Patronymic
+                </label>
+                <span
+                  class="field__warn"
+                >
+                  field cannot be empty
+                </span>
+              </div>
+              <input
+                class="field__input no-valid"
+                id="patronymic"
+                name="patronymic"
+                placeholder="Your Patronymic"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="form__field file"
+            >
+              <div
+                class="file__title"
+              >
+                <span
+                  class="file__text"
+                >
+                  Photo
+                </span>
+                <span
+                  class="file__warn"
+                >
+                  image is required
+                </span>
+              </div>
+              <input
+                accept="image/*"
+                class="file__input"
+                id="file"
+                name="file"
+                required=""
+                type="file"
+              />
+              <label
+                class="file__label"
+                for="file"
+              />
+            </div>
+            <button
+              class="form__button"
+              data-testid="form-submit"
+              disabled=""
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FormPage component render component snapshot 1`] = `
+<div>
+  <div
+    class="form-page"
+  >
+    <div
+      class="form-page__wrapper"
+    >
+      <div
+        class="form-page__form"
+      >
+        <form
+          class="form"
+        >
+          <div
+            class="form__wrapper"
+          >
+            <div
+              class="form__field field"
+            >
+              <div
+                class="field__title"
+              >
+                <label
+                  class="field__label"
+                  for="name"
+                >
+                  Name
+                </label>
+                <span
+                  class="field__warn"
+                >
+                  field cannot be empty
+                </span>
+              </div>
+              <input
+                class="field__input no-valid"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="form__field field"
+            >
+              <div
+                class="field__title"
+              >
+                <label
+                  class="field__label"
+                  for="name"
+                >
+                  Surname
+                </label>
+                <span
+                  class="field__warn"
+                >
+                  field cannot be empty
+                </span>
+              </div>
+              <input
+                class="field__input no-valid"
+                id="surname"
+                name="surname"
+                placeholder="Your Surname"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="form__field field"
+            >
+              <div
+                class="field__title"
+              >
+                <label
+                  class="field__label"
+                  for="name"
+                >
+                  Patronymic
+                </label>
+                <span
+                  class="field__warn"
+                >
+                  field cannot be empty
+                </span>
+              </div>
+              <input
+                class="field__input no-valid"
+                id="patronymic"
+                name="patronymic"
+                placeholder="Your Patronymic"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="form__field file"
+            >
+              <div
+                class="file__title"
+              >
+                <span
+                  class="file__text"
+                >
+                  Photo
+                </span>
+                <span
+                  class="file__warn"
+                >
+                  image is required
+                </span>
+              </div>
+              <input
+                accept="image/*"
+                class="file__input"
+                id="file"
+                name="file"
+                required=""
+                type="file"
+              />
+              <label
+                class="file__label"
+                for="file"
+              />
+            </div>
+            <button
+              class="form__button"
+              data-testid="form-submit"
+              disabled=""
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
