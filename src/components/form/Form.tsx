@@ -112,7 +112,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <button className="form__button"
-                    data-testid="form-submit"
+                    data-testid="button-submit"
                     disabled={
                         !inputName.isInputValid ||
                         !inputSurname.isInputValid ||
@@ -121,7 +121,7 @@ const Form: React.FC = () => {
                         isPreloaderVisible
                     }
                 >
-                    Save
+                    {isPreloaderVisible ? 'Sending...' : 'Save'}
                 </button>
 
             </div>

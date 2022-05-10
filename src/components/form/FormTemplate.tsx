@@ -15,7 +15,8 @@ interface FormTemplatePropTypes {
 // /. interfaces
 
 const FormTemplate: React.FC<FormTemplatePropTypes> = (props) => {
-    const { text,
+    const {
+        text,
         placeholder,
         htmlFor,
         inputName,
