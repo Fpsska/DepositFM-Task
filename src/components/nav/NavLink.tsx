@@ -42,7 +42,7 @@ const NavLink: React.FC<NavLinkPropTypes> = (props) => {
             <Link className={isActive ? 'nav__link active' : 'nav__link'}
                 to={isPreloaderVisible ? '' : link}
                 onClick={switchLinkActiveStatus}
-                role="navigation"
+                data-testid="nav-link"
             >
                 {text}
             </Link>

@@ -31,8 +31,8 @@ describe('Form component', () => {
     test('should be set no-valid class, when input is not-valid', () => {
         render(<Form />);
 
-        expect(screen.getByPlaceholderText('Your Name')).toHaveClass('field__input', 'no-valid', { exact: true });
-        expect(screen.getByPlaceholderText('Your Surname')).toHaveClass('field__input', 'no-valid', { exact: true });
-        expect(screen.getByPlaceholderText('Your Patronymic')).toHaveClass('field__input', 'no-valid', { exact: true });
+        expect(screen.getByPlaceholderText('Your Name')).toHaveClass('field__input no-valid');
+        expect(screen.getByPlaceholderText('Your Surname')).toHaveClass('field__input no-valid');
+        expect(screen.getByPlaceholderText('Your Patronymic')).toHaveClass('field__input no-valid');
     });
 });

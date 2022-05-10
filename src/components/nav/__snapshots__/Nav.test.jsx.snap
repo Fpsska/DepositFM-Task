@@ -1,5 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Nav component Nav data snapshot 1`] = `undefined`;
+exports[`Nav component render component empty snapshot 1`] = `
+<div>
+  <nav
+    class="nav"
+  >
+    <ul
+      class="nav__menu"
+    >
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link active"
+          data-testid="nav-link"
+          href="/DepositFM-Task/"
+        >
+          Form
+        </a>
+      </li>
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link"
+          data-testid="nav-link"
+          href="/Palette"
+        >
+          Palette
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
 
-exports[`Nav component Nav empty snapshot 1`] = `undefined`;
+exports[`Nav component render component snapshot with data 1`] = `
+<div>
+  <nav
+    class="nav"
+  >
+    <ul
+      class="nav__menu"
+    >
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link active"
+          data-testid="nav-link"
+          href="/DepositFM-Task/"
+        >
+          Form
+        </a>
+      </li>
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link"
+          data-testid="nav-link"
+          href="/Palette"
+        >
+          Palette
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
