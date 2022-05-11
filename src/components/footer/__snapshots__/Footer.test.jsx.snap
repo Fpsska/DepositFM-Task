@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component render component snapshot with data 1`] = `
+<div>
+  <footer
+    class="footer"
+  >
+    <div
+      class="footer__wrapper"
+    >
+      <div
+        class="response"
+      >
+        <div
+          class="response__wrapper"
+        >
+          <span
+            class="response__text"
+          >
+            Response
+          </span>
+          <div
+            class="response__information"
+          >
+            <div
+              class="response__status status"
+            >
+              <span
+                class="status__title"
+              >
+                Status:
+                 
+              </span>
+              <span
+                class="status__body"
+                data-testid="status-body"
+              >
+                waiting for submit
+              </span>
+            </div>
+            <span
+              class="response__message"
+              data-testid="response-message"
+            >
+              Message: waiting for submit
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
