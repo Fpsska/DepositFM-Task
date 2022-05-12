@@ -1,0 +1,26 @@
+.button {
+    background: #007aff;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 14px 16px;
+    width: 100%;
+    transform: scale(1);
+    transition: transform 0.35s linear;
+    &:disabled {
+        background-color: rgba($color: #007aff, $alpha: 0.35);
+        cursor: not-allowed;
+    }
+    &:active {
+        transform: scale(1.05);
+        transition: transform 0.35s linear;
+    }
+}
+.button--form {
+    margin: 0 0 23px 0;
+}
+.button--palette {
+    margin: 23px 0 0 0;
+}

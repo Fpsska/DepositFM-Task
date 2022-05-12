@@ -14,7 +14,10 @@ import { RootState } from '../../app/store';
 
 import { useInput } from '../../hooks/useInput';
 
+import ButtonTemplate from '../button/Button';
+
 import FormTemplate from './FormTemplate';
+
 
 import './form.scss';
 
@@ -111,18 +114,19 @@ const Form: React.FC = () => {
                     </>
                 </div>
 
-                <button className="form__button"
-                    data-testid="button-submit"
-                    disabled={
+                <ButtonTemplate
+                    className={'button--form'}
+                    attr={'button-submit'}
+                    text={isPreloaderVisible ? 'Sending...' : 'Save'}
+                    disabledStatus={
                         !inputName.isInputValid ||
                         !inputSurname.isInputValid ||
                         !inputPatronymic.isInputValid ||
                         !imageInput.isInputValid ||
                         isPreloaderVisible
                     }
-                >
-                    {isPreloaderVisible ? 'Sending...' : 'Save'}
-                </button>
+                    onClickHandler={() => { }}
+                />
 
             </div>
         </form>

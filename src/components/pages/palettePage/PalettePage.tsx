@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ChromePicker } from 'react-color';
@@ -8,6 +8,8 @@ import Palette from '../../palette/Palette';
 import './palettePage.scss';
 
 import { RootState } from '../../../app/store';
+
+import ButtonTemplate from '../../button/Button';
 
 import palette from '../../../assets/images/palette.png';
 
@@ -20,7 +22,7 @@ const PalettePage: React.FC = () => {
     const dispatch = useDispatch();
     const colorPicker = useRef<HTMLDivElement>(null!);
     // 
-    const addPaletteTemplate = (): void => {
+    const addPaletteTemplate = useCallback((): void => {
         dispatch(addCurrentPaletteTemplate(
             {
                 id: String(Math.floor(Math.random() * 1000)),
@@ -29,7 +31,7 @@ const PalettePage: React.FC = () => {
         ));
         dispatch(setPaletteVisibleStatus(true));
         dispatch(setColorPickerStatus(true));
-    };
+    }, [initaialColor]);
 
     const setCurrentPickerColor = (updatedColor: string): void => {
         dispatch(setCurrentPaletteTemplateColor({ id: currentPaletteTemplateID, value: updatedColor }));
@@ -87,7 +89,15 @@ const PalettePage: React.FC = () => {
                                 <></>
                         }
                     </div>
-                    <button className="palette-page__button" disabled={limit ? true : false} onClick={addPaletteTemplate}>Add color</button>
+
+                    <ButtonTemplate
+                        className={'button--palette'}
+                        text={'Add color'}
+                        disabledStatus={limit ? true : false}
+                        attr={''}
+                        onClickHandler={addPaletteTemplate}
+                    />
+
                 </div>
                 <div className="palette-page__preview">
                     <img className="palette-page__image" src={palette} alt="palette" />
