@@ -46,7 +46,7 @@ const PalettePage: React.FC = () => {
 
     const defineValidColorPickerArea = (e: any): void => {
         const validPickerArea = e.target === colorPicker.current || colorPicker.current.contains(e.target);  // (e.target as Element)
-        const validElements = e.target.className === 'palette__template' || e.target.className === 'palette-page__button';
+        const validElements = e.target.className === 'palette__template' || e.target.className === 'button button--palette';
         if (!validPickerArea && !validElements) {
             dispatch(setColorPickerStatus(false));
         }
