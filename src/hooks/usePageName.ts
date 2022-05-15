@@ -4,7 +4,7 @@ import { setFormPageStatus } from '../app/slices/navSlice';
 
 // /. imports
 
-export function useDefinePage() {
+export function usePageName() {
     const dispatch = useDispatch();
 
     const handlePageName = (pageName: string) => {

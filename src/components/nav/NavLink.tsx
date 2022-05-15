@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { setNavLinkActiveStatus } from '../../app/slices/navSlice';
-import { useDefinePage } from '../../hooks/definePage';
+import { usePageName } from '../../hooks/usePageName';
 
 // /. imports
 
@@ -19,7 +19,7 @@ interface NavLinkPropTypes {
 
 const NavLink: React.FC<NavLinkPropTypes> = (props) => {
 
-    const { 
+    const {
         id,
         text,
         link,
@@ -28,7 +28,7 @@ const NavLink: React.FC<NavLinkPropTypes> = (props) => {
     } = props;
     // 
     const dispatch = useDispatch();
-    const { handlePageName } = useDefinePage();
+    const { handlePageName } = usePageName();
     // 
     const switchLinkActiveStatus = (): void => {
         if (!isPreloaderVisible) {
@@ -39,7 +39,8 @@ const NavLink: React.FC<NavLinkPropTypes> = (props) => {
     // 
     return (
         <li className="nav__item">
-            <Link className={isActive ? 'nav__link active' : 'nav__link'}
+            <Link
+                className={isActive ? 'nav__link active' : 'nav__link'}
                 to={isPreloaderVisible ? '' : link}
                 onClick={switchLinkActiveStatus}
                 data-testid="nav-link"

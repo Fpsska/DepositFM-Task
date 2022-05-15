@@ -132,7 +132,7 @@ exports[`FormPage component render component snapshot 1`] = `
               />
             </div>
             <button
-              class="form__button"
+              class="button button--form"
               data-testid="button-submit"
               disabled=""
             >

@@ -93,7 +93,7 @@ const PalettePage: React.FC = () => {
                     <ButtonTemplate
                         className={'button--palette'}
                         text={'Add color'}
-                        disabledStatus={limit ? true : false}
+                        disabledStatus={limit}
                         attr={''}
                         onClickHandler={addPaletteTemplate}
                     />

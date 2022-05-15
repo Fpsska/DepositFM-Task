@@ -8,7 +8,7 @@ import {
     setPreloaderVisibleStatus
 } from '../../app/slices/formSlice';
 
-import { usePostRequest } from '../../hooks/postRequest';
+import { usePostRequest } from '../../hooks/usePostRequest';
 
 import { RootState } from '../../app/store';
 

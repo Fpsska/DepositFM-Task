@@ -27,6 +27,7 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = (props) => {
 
     const [errInputName, setErrInputName] = useState<any>(inputName);
     // 
+    // 
     const errorNameHandler = useCallback((name: string) => {
         switch (name) {
             case 'name':
@@ -49,7 +50,6 @@ const FormTemplate: React.FC<FormTemplatePropTypes> = (props) => {
         const eventValue = e.target.value.replace(/[0-9]/g, '');
         errInputName.onInputChange(eventValue); // send correct event.target.value to useInput onInputChange func
     };
-
     // 
     return (
         <div className="form__field field">

@@ -123,7 +123,7 @@ exports[`Form component render component empty snapshot 1`] = `
         />
       </div>
       <button
-        class="form__button"
+        class="button button--form"
         data-testid="button-submit"
         disabled=""
       >
@@ -257,7 +257,7 @@ exports[`Form component render component snapshot with data 1`] = `
         />
       </div>
       <button
-        class="form__button"
+        class="button button--form"
         data-testid="button-submit"
         disabled=""
       >
