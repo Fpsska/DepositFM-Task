@@ -1,18 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { deleteCurrentPaletteTemplate, setColorPickerStatus, setCurrentPaletteTemplateID } from '../../app/slices/paletteSlice';
+import { deleteCurrentPaletteTemplate, setCurrentPaletteTemplateID } from '../../app/slices/paletteSlice';
 
 // /. imports
 
 interface PaletteTemplatePropTypes {
     id: string,
-    color: string
+    color: string,
+    setVisibleStatus: (arg: boolean) => void
 }
 
 // /. interfaces
 
-const PaletteTemplate: React.FC<PaletteTemplatePropTypes> = ({ id, color }) => {
+const PaletteTemplate: React.FC<PaletteTemplatePropTypes> = (props) => {
+
+    const {
+        id,
+        color,
+        setVisibleStatus
+    } = props;
+
     const dispatch = useDispatch();
     // 
     const deletePaletteTemplate = (): void => {
@@ -20,8 +28,8 @@ const PaletteTemplate: React.FC<PaletteTemplatePropTypes> = ({ id, color }) => {
     };
 
     const openColorPicker = (): void => {
-        dispatch(setColorPickerStatus(true));
         dispatch(setCurrentPaletteTemplateID(id));
+        setVisibleStatus(true);
     };
 
     useEffect(() => {  // set current ID for define necessary item in currentPaletteData

@@ -7,7 +7,6 @@ import { currentPaletteDataTypes } from '../../Types/paletteSliceTypes';
 interface paletteSliceTypes {
     currentPaletteData: currentPaletteDataTypes[],
     isPaletteVisible: boolean,
-    isColorPickerVisible: boolean,
     currentPaletteTemplateID: string
 };
 
@@ -21,7 +20,6 @@ interface setCurrentPaletteTemplateColorTypes {
 const initialState: paletteSliceTypes = {
     currentPaletteData: [],
     isPaletteVisible: false,
-    isColorPickerVisible: false,
     currentPaletteTemplateID: '0'
 };
 
@@ -39,9 +37,6 @@ const paletteSlice = createSlice({
         },
         deleteCurrentPaletteTemplate(state, action: PayloadAction<string>) {
             state.currentPaletteData = state.currentPaletteData.filter(item => item.id !== action.payload);
-        },
-        setColorPickerStatus(state, action: PayloadAction<boolean>) {
-            state.isColorPickerVisible = action.payload;
         },
         setCurrentPaletteTemplateColor(state, action: PayloadAction<setCurrentPaletteTemplateColorTypes>) {
             const { id, value } = action.payload;
@@ -64,7 +59,6 @@ export const {
     setPaletteVisibleStatus,
     addCurrentPaletteTemplate,
     deleteCurrentPaletteTemplate,
-    setColorPickerStatus,
     setCurrentPaletteTemplateColor,
     setCurrentPaletteTemplateID
 } = paletteSlice.actions;

@@ -1,13 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ChromePicker } from 'react-color';
 
-import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setColorPickerStatus, setCurrentPaletteTemplateColor } from '../../../app/slices/paletteSlice';
+import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setCurrentPaletteTemplateColor } from '../../../app/slices/paletteSlice';
 import Palette from '../../palette/Palette';
 import './palettePage.scss';
 
 import { RootState } from '../../../app/store';
+
+import { useAreaHandler } from '../../../hooks/useAreaHandler';
 
 import ButtonTemplate from '../../button/Button';
 
@@ -16,11 +18,14 @@ import palette from '../../../assets/images/palette.png';
 // /. imports
 
 const PalettePage: React.FC = () => {
-    const { isColorPickerVisible, currentPaletteData, currentPaletteTemplateID } = useSelector((state: RootState) => state.paletteSlice);
+    const { currentPaletteData, currentPaletteTemplateID } = useSelector((state: RootState) => state.paletteSlice);
+
     const [limit, setLimit] = useState(false);
     const [initaialColor, setColor] = useState('#ccc');
+
     const dispatch = useDispatch();
-    const colorPicker = useRef<HTMLDivElement>(null!);
+
+    const { refEl, isVisible, setVisibleStatus } = useAreaHandler({ initialStatus: false });
     // 
     const addPaletteTemplate = useCallback((): void => {
         dispatch(addCurrentPaletteTemplate(
@@ -30,7 +35,7 @@ const PalettePage: React.FC = () => {
             }
         ));
         dispatch(setPaletteVisibleStatus(true));
-        dispatch(setColorPickerStatus(true));
+        setVisibleStatus(true);
     }, [initaialColor]);
 
     const setCurrentPickerColor = (updatedColor: string): void => {
@@ -38,28 +43,18 @@ const PalettePage: React.FC = () => {
         setColor(updatedColor);
     };
 
-    const keyHandler = (e: any): void => {
-        if (isColorPickerVisible && e.code === 'Escape') {
-            dispatch(setColorPickerStatus(false));
+    const keyHandler = useCallback((e: any): void => {
+        if (isVisible && e.code === 'Escape') {
+            setVisibleStatus(false);
         }
-    };
-
-    const defineValidColorPickerArea = (e: any): void => {
-        const validPickerArea = e.target === colorPicker.current || colorPicker.current.contains(e.target);  // (e.target as Element)
-        const validElements = e.target.className === 'palette__template' || e.target.className === 'button button--palette';
-        if (!validPickerArea && !validElements) {
-            dispatch(setColorPickerStatus(false));
-        }
-    };
-
+    }, [isVisible]);
+    // 
     useEffect(() => {
         document.addEventListener('keydown', keyHandler);
-        document.addEventListener('click', defineValidColorPickerArea);
         return () => {
             document.removeEventListener('keydown', keyHandler);
-            document.removeEventListener('click', defineValidColorPickerArea);
         };
-    }, [isColorPickerVisible]);
+    }, [isVisible, keyHandler]);
 
     useEffect(() => {
         if (currentPaletteData.length >= 8) { // disable ADD button
@@ -69,7 +64,7 @@ const PalettePage: React.FC = () => {
         }
         // 
         if (currentPaletteData.length <= 0) { // hide ColorPicker
-            dispatch(setColorPickerStatus(false));
+            setVisibleStatus(false);
         }
     }, [currentPaletteData]);
     // 
@@ -78,11 +73,11 @@ const PalettePage: React.FC = () => {
             <div className="palette-page__wrapper">
                 <div className="palette-page__workplace">
                     <div className="palette-page__palette">
-                        <Palette />
+                        <Palette setVisibleStatus={setVisibleStatus} />
                     </div>
-                    <div ref={colorPicker} className="palette-page__picker">
+                    <div ref={refEl} className="palette-page__picker">
                         {
-                            isColorPickerVisible
+                            isVisible
                                 ?
                                 <ChromePicker color={initaialColor} onChange={(updatedColor: { hex: string }) => setCurrentPickerColor(updatedColor.hex)} />
                                 :

@@ -9,7 +9,16 @@ import './palette.scss';
 
 // /. imports
 
-const Palette: React.FC = () => {
+interface PalettePropTypes {
+    setVisibleStatus: (arg: boolean) => void
+}
+
+// /. interfaces 
+
+const Palette: React.FC<PalettePropTypes> = (props) => {
+
+    const { setVisibleStatus } = props;
+
     const { currentPaletteData, isPaletteVisible } = useSelector((state: RootState) => state.paletteSlice);
     // 
     return (
@@ -25,6 +34,7 @@ const Palette: React.FC = () => {
                                         key={item.id}
                                         id={item.id}
                                         color={item.color}
+                                        setVisibleStatus={setVisibleStatus}
                                     />
                                 );
                             })}
