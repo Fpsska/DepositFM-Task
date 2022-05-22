@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 // /. imports
 
@@ -21,12 +21,20 @@ export function useAreaHandler(props: propTypes) {
         }
     };
 
+    const keyHandler = useCallback((e: KeyboardEvent): void => {
+        if (isVisible && e.code === 'Escape') {
+            setVisibleStatus(false);
+        }
+    }, [isVisible]);
+
     useEffect(() => {
         document.addEventListener('click', areaHandler, true);
+        document.addEventListener('keydown', keyHandler);
         return () => {
             document.removeEventListener('click', areaHandler, true);
+            document.removeEventListener('keydown', keyHandler);
         };
-    }, []);
+    }, [keyHandler]);
 
     return { refEl, isVisible, setVisibleStatus };
 }

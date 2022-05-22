@@ -43,19 +43,6 @@ const PalettePage: React.FC = () => {
         setColor(updatedColor);
     };
 
-    const keyHandler = useCallback((e: any): void => {
-        if (isVisible && e.code === 'Escape') {
-            setVisibleStatus(false);
-        }
-    }, [isVisible]);
-    // 
-    useEffect(() => {
-        document.addEventListener('keydown', keyHandler);
-        return () => {
-            document.removeEventListener('keydown', keyHandler);
-        };
-    }, [isVisible, keyHandler]);
-
     useEffect(() => {
         if (currentPaletteData.length >= 8) { // disable ADD button
             setLimit(true);
