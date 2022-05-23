@@ -2,7 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ###### _powered by :_
 
-- [react-hook-form](https://react-hook-form.com/)
 - [react-color](https://github.com/casesandberg/react-color)
 - [css-spinner](https://github.com/loadingio/css-spinner/)
 
