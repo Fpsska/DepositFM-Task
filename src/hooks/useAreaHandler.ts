@@ -16,7 +16,7 @@ export function useAreaHandler(props: propTypes) {
     const refEl = useRef<HTMLDivElement>(null!);
 
     const areaHandler = (e: any) => {
-        if (refEl.current && !refEl.current.contains(e.target)) {
+        if (isVisible && refEl.current && !refEl.current.contains(e.target)) {
             setVisibleStatus(false);
         }
     };
