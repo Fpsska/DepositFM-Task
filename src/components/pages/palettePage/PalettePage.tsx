@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
 import { ChromePicker } from 'react-color';
+
+
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+
 
 import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setCurrentPaletteTemplateColor } from '../../../app/slices/paletteSlice';
 import Palette from '../../palette/Palette';
@@ -18,12 +20,12 @@ import palette from '../../../assets/images/palette.png';
 // /. imports
 
 const PalettePage: React.FC = () => {
-    const { currentPaletteData, currentPaletteTemplateID } = useSelector((state: RootState) => state.paletteSlice);
+    const { currentPaletteData, currentPaletteTemplateID } = useAppSelector((state: RootState) => state.paletteSlice);
 
     const [limit, setLimit] = useState(false);
     const [initaialColor, setColor] = useState('#ccc');
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const { refEl, isVisible, setVisibleStatus } = useAreaHandler({ initialStatus: false });
     // 

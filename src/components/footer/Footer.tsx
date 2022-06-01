@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import { setResponseInfo } from '../../app/slices/formSlice';
 
@@ -10,9 +11,9 @@ import './footer.scss';
 // /. imports
 
 const Footer: React.FC = () => {
-    const { isFormPage } = useSelector((state: RootState) => state.navSlice);
-    const { currentResponseInfo, isResponseIncorrect, isFormSubmited } = useSelector((state: RootState) => state.formSlice);
-    const dispatch = useDispatch();
+    const { isFormPage } = useAppSelector((state: RootState) => state.navSlice);
+    const { currentResponseInfo, isResponseIncorrect, isFormSubmited } = useAppSelector((state: RootState) => state.formSlice);
+    const dispatch = useAppDispatch();
     // 
     useEffect(() => {
         dispatch(setResponseInfo(

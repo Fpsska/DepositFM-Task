@@ -1,11 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../app/hooks';
 
 import { setFormPageStatus } from '../app/slices/navSlice';
 
 // /. imports
 
 export function usePageName() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const handlePageName = (pageName: string) => {
         switch (pageName) {

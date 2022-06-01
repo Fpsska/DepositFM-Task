@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+
+import { useAppDispatch } from '../../app/hooks';
 
 import { deleteCurrentPaletteTemplate, setCurrentPaletteTemplateID } from '../../app/slices/paletteSlice';
 
@@ -21,7 +22,7 @@ const PaletteTemplate: React.FC<PaletteTemplatePropTypes> = (props) => {
         setVisibleStatus
     } = props;
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     // 
     const deletePaletteTemplate = (): void => {
         dispatch(deleteCurrentPaletteTemplate(id));

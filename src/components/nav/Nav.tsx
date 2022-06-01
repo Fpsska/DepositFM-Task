@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+
+import { useAppSelector } from '../../app/hooks';
 
 import { RootState } from '../../app/store';
 
@@ -10,8 +11,8 @@ import './nav.scss';
 // /. imports
 
 const Nav: React.FC = () => {
-    const { navLinks } = useSelector((state: RootState) => state.navSlice);
-    const { isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
+    const { navLinks } = useAppSelector((state: RootState) => state.navSlice);
+    const { isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
     // 
     return (
         <nav className="nav">

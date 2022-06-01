@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../app/hooks';
 
 import { RootState } from '../../app/store';
 
@@ -14,7 +14,7 @@ import Preloader from './Preloader/Preloader';
 
 const Layout: React.FC = () => {
 
-    const { isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
+    const { isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
     // 
     return (
         <div className="page">

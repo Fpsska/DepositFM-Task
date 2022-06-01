@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 import { setResponseInfo, setResponseErrorStatus } from '../app/slices/formSlice';
 
@@ -24,8 +25,8 @@ interface contactsTypes {
 // /. interfaces
 
 export function usePostRequest() {
-    const dispatch = useDispatch();
-    const { currentResponseInfo } = useSelector((state: RootState) => state.formSlice);
+    const { currentResponseInfo } = useAppSelector((state: RootState) => state.formSlice);
+    const dispatch = useAppDispatch();
 
     const request = useCallback(async (url: string, data: dataTypes) => {
         try {

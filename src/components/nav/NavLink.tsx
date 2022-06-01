@@ -1,6 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+
 import { Link } from 'react-router-dom';
+
+import { useAppDispatch } from '../../app/hooks';
 
 import { setNavLinkActiveStatus } from '../../app/slices/navSlice';
 import { usePageName } from '../../hooks/usePageName';
@@ -27,7 +29,7 @@ const NavLink: React.FC<NavLinkPropTypes> = (props) => {
         isPreloaderVisible
     } = props;
     // 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { handlePageName } = usePageName();
     // 
     const switchLinkActiveStatus = (): void => {

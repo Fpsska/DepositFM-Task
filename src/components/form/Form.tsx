@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import {
     setImageSelectedStatus,
@@ -24,8 +25,8 @@ import './form.scss';
 // /. imports
 
 const Form: React.FC = () => {
-    const { formInputs, isImageSelected, currentImageURL, isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
-    const dispatch = useDispatch();
+    const { formInputs, isImageSelected, currentImageURL, isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
+    const dispatch = useAppDispatch();
     const form = useRef<HTMLFormElement>(null!);
     // 
     const { request } = usePostRequest();

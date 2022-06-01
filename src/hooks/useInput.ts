@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 import { RootState } from '../app/store';
 
@@ -14,11 +14,11 @@ import { useValidation } from './useValidation';
 
 export function useInput(currentValue: string, isImageSelected: boolean, validations: any) {
 
-    const { isFormSubmited, isPreloaderVisible } = useSelector((state: RootState) => state.formSlice);
+    const { isFormSubmited, isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
     const [value, setValue] = useState<string>(currentValue);
     const [isInputActive, setInputActiveStatus] = useState<boolean>(false);
     const valid = useValidation({ value, isImageSelected, validations });
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onInputChange = (e: string) => { // get correct string value from event
         setValue(e);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../app/hooks';
 
 import { RootState } from '../../app/store';
 
@@ -19,7 +19,7 @@ const Palette: React.FC<PalettePropTypes> = (props) => {
 
     const { setVisibleStatus } = props;
 
-    const { currentPaletteData, isPaletteVisible } = useSelector((state: RootState) => state.paletteSlice);
+    const { currentPaletteData, isPaletteVisible } = useAppSelector((state: RootState) => state.paletteSlice);
     // 
     return (
         <div className="palette">
