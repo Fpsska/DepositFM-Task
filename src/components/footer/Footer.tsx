@@ -4,15 +4,18 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import { setResponseInfo } from '../../app/slices/formSlice';
 
-import { RootState } from '../../app/store';
-
 import './footer.scss';
 
 // /. imports
 
 const Footer: React.FC = () => {
-    const { isFormPage } = useAppSelector((state: RootState) => state.navSlice);
-    const { currentResponseInfo, isResponseIncorrect, isFormSubmited } = useAppSelector((state: RootState) => state.formSlice);
+    const { isFormPage } = useAppSelector(state => state.navSlice);
+    const {
+        currentResponseInfo,
+        isResponseIncorrect,
+        isFormSubmited
+    } = useAppSelector(state => state.formSlice);
+
     const dispatch = useAppDispatch();
     // 
     useEffect(() => {

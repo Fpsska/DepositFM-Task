@@ -4,9 +4,6 @@ import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 import { setResponseInfo, setResponseErrorStatus } from '../app/slices/formSlice';
 
-import { RootState } from '../app/store';
-
-
 // /. imports
 
 interface dataTypes {
@@ -25,7 +22,7 @@ interface contactsTypes {
 // /. interfaces
 
 export function usePostRequest() {
-    const { currentResponseInfo } = useAppSelector((state: RootState) => state.formSlice);
+    const { currentResponseInfo } = useAppSelector(state => state.formSlice);
     const dispatch = useAppDispatch();
 
     const request = useCallback(async (url: string, data: dataTypes) => {

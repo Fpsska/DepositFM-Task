@@ -1,26 +1,28 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ChromePicker } from 'react-color';
 
-
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
-
-import { addCurrentPaletteTemplate, setPaletteVisibleStatus, setCurrentPaletteTemplateColor } from '../../../app/slices/paletteSlice';
-import Palette from '../../palette/Palette';
-import './palettePage.scss';
-
-import { RootState } from '../../../app/store';
+import {
+    addCurrentPaletteTemplate,
+    setPaletteVisibleStatus,
+    setCurrentPaletteTemplateColor
+} from '../../../app/slices/paletteSlice';
 
 import { useAreaHandler } from '../../../hooks/useAreaHandler';
 
 import ButtonTemplate from '../../button/Button';
+import Palette from '../../palette/Palette';
 
 import palette from '../../../assets/images/palette.png';
+
+import './palettePage.scss';
+
 
 // /. imports
 
 const PalettePage: React.FC = () => {
-    const { currentPaletteData, currentPaletteTemplateID } = useAppSelector((state: RootState) => state.paletteSlice);
+    const { currentPaletteData, currentPaletteTemplateID } = useAppSelector(state => state.paletteSlice);
 
     const [limit, setLimit] = useState(false);
     const [initaialColor, setColor] = useState('#ccc');

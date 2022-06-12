@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 
-import { RootState } from '../app/store';
-
 import { setPreloaderVisibleStatus } from '../app/slices/formSlice';
 
 import { useValidation } from './useValidation';
@@ -14,10 +12,13 @@ import { useValidation } from './useValidation';
 
 export function useInput(currentValue: string, isImageSelected: boolean, validations: any) {
 
-    const { isFormSubmited, isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
+    const { isFormSubmited, isPreloaderVisible } = useAppSelector(state => state.formSlice);
+
     const [value, setValue] = useState<string>(currentValue);
     const [isInputActive, setInputActiveStatus] = useState<boolean>(false);
+    
     const valid = useValidation({ value, isImageSelected, validations });
+
     const dispatch = useAppDispatch();
 
     const onInputChange = (e: string) => { // get correct string value from event

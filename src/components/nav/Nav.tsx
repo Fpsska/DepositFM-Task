@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useAppSelector } from '../../app/hooks';
 
-import { RootState } from '../../app/store';
-
 import NavLink from './NavLink';
 
 import './nav.scss';
@@ -11,8 +9,8 @@ import './nav.scss';
 // /. imports
 
 const Nav: React.FC = () => {
-    const { navLinks } = useAppSelector((state: RootState) => state.navSlice);
-    const { isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
+    const { navLinks } = useAppSelector(state => state.navSlice);
+    const { isPreloaderVisible } = useAppSelector(state => state.formSlice);
     // 
     return (
         <nav className="nav">

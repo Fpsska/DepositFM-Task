@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useAppSelector } from '../../app/hooks';
 
-import { RootState } from '../../app/store';
-
 import PaletteTemplate from './PaletteTemplate';
 import './palette.scss';
 
@@ -19,7 +17,7 @@ const Palette: React.FC<PalettePropTypes> = (props) => {
 
     const { setVisibleStatus } = props;
 
-    const { currentPaletteData, isPaletteVisible } = useAppSelector((state: RootState) => state.paletteSlice);
+    const { currentPaletteData, isPaletteVisible } = useAppSelector(state=> state.paletteSlice);
     // 
     return (
         <div className="palette">

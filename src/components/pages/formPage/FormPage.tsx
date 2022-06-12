@@ -4,13 +4,12 @@ import { useAppSelector } from '../../../app/hooks';
 
 import Form from '../../form/Form';
 import Preloader from '../../common/Preloader/Preloader';
-import { RootState } from '../../../app/store';
 
 // /. imports
 
 const FormPage: React.FC = () => {
 
-    const { isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
+    const { isPreloaderVisible } = useAppSelector(state => state.formSlice);
     // 
     return (
         <div className="form-page">

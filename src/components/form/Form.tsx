@@ -11,8 +11,6 @@ import {
 
 import { usePostRequest } from '../../hooks/usePostRequest';
 
-import { RootState } from '../../app/store';
-
 import { useInput } from '../../hooks/useInput';
 
 import ButtonTemplate from '../button/Button';
@@ -25,8 +23,15 @@ import './form.scss';
 // /. imports
 
 const Form: React.FC = () => {
-    const { formInputs, isImageSelected, currentImageURL, isPreloaderVisible } = useAppSelector((state: RootState) => state.formSlice);
+    const {
+        formInputs,
+        isImageSelected,
+        currentImageURL,
+        isPreloaderVisible
+    } = useAppSelector(state => state.formSlice);
+
     const dispatch = useAppDispatch();
+
     const form = useRef<HTMLFormElement>(null!);
     // 
     const { request } = usePostRequest();
