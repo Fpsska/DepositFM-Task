@@ -44,7 +44,7 @@ const PalettePage: React.FC = () => {
 
     const setCurrentPickerColor = (updatedColor: string): void => {
         dispatch(setCurrentPaletteTemplateColor({ id: currentPaletteTemplateID, value: updatedColor }));
-        setColor(updatedColor);
+        setColor('#ccc'); // set default color after add item
     };
 
     useEffect(() => {
