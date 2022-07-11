@@ -48,15 +48,8 @@ const PalettePage: React.FC = () => {
     };
 
     useEffect(() => {
-        if (currentPaletteData.length >= 8) { // disable ADD button
-            setLimit(true);
-        } else {
-            setLimit(false);
-        }
-        // 
-        if (currentPaletteData.length <= 0) { // hide ColorPicker
-            setVisibleStatus(false);
-        }
+        currentPaletteData.length >= 8 ? setLimit(true) : setLimit(false); // disable ADD button
+        currentPaletteData.length <= 0 && setVisibleStatus(false); // hide ColorPicker
     }, [currentPaletteData]);
     // 
     return (

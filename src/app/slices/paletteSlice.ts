@@ -40,13 +40,7 @@ const paletteSlice = createSlice({
         },
         setCurrentPaletteTemplateColor(state, action: PayloadAction<setCurrentPaletteTemplateColorTypes>) {
             const { id, value } = action.payload;
-            state.currentPaletteData.map(item => {
-                if (item.id === id) {
-                    return item.color = value;
-                } else {
-                    return item;
-                }
-            });
+            state.currentPaletteData.map(item => item.id === id ? item.color = value : item);
         },
         setCurrentPaletteTemplateID(state, action: PayloadAction<string>) {
             state.currentPaletteTemplateID = action.payload;
