@@ -17,7 +17,7 @@ const Palette: React.FC<PalettePropTypes> = (props) => {
 
     const { setVisibleStatus } = props;
 
-    const { currentPaletteData, isPaletteVisible } = useAppSelector(state=> state.paletteSlice);
+    const { currentPaletteData, isPaletteVisible } = useAppSelector(state => state.paletteSlice);
     // 
     return (
         <div className="palette">
@@ -30,8 +30,8 @@ const Palette: React.FC<PalettePropTypes> = (props) => {
                                 return (
                                     <PaletteTemplate
                                         key={item.id}
-                                        id={item.id}
-                                        color={item.color}
+                                        {...item}
+
                                         setVisibleStatus={setVisibleStatus}
                                     />
                                 );

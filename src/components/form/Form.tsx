@@ -81,9 +81,8 @@ const Form: React.FC = () => {
                     return (
                         <FormTemplate
                             key={item.id}
-                            htmlFor={item.htmlFor}
-                            text={item.text}
-                            placeholder={item.placeholder}
+                            {...item}
+
                             inputName={inputName}
                             inputSurname={inputSurname}
                             inputPatronymic={inputPatronymic}

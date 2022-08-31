@@ -19,10 +19,8 @@ const Nav: React.FC = () => {
                     return (
                         <NavLink
                             key={item.id}
-                            id={item.id}
-                            text={item.text}
-                            link={item.link}
-                            isActive={item.isActive}
+                            {...item}
+
                             isPreloaderVisible={isPreloaderVisible}
                         />
                     );
