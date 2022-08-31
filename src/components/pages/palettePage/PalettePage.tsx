@@ -52,7 +52,7 @@ const PalettePage: React.FC = () => {
         currentPaletteData.length >= 8 ? setLimit(true) : setLimit(false); // disable ADD button
         currentPaletteData.length <= 0 && setVisibleStatus(false); // hide ColorPicker
     }, [currentPaletteData]);
-    
+
     return (
         <div className="palette-page">
             <div className="palette-page__wrapper">
@@ -62,11 +62,11 @@ const PalettePage: React.FC = () => {
                     </div>
                     <div ref={refEl} className="palette-page__picker">
                         {
-                            isVisible
-                                ?
-                                <ChromePicker color={initaialColor} onChange={(updatedColor: { hex: string }) => setCurrentPickerColor(updatedColor.hex)} />
-                                :
-                                <></>
+                            isVisible &&
+                            <ChromePicker
+                                color={initaialColor}
+                                onChange={(updatedColor: { hex: string }) => setCurrentPickerColor(updatedColor.hex)}
+                            />
                         }
                     </div>
 

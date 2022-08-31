@@ -11,7 +11,7 @@ import './nav.scss';
 const Nav: React.FC = () => {
     const { navLinks } = useAppSelector(state => state.navSlice);
     const { isPreloaderVisible } = useAppSelector(state => state.formSlice);
-    // 
+
     return (
         <nav className="nav">
             <ul className="nav__menu">

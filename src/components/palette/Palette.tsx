@@ -18,27 +18,24 @@ const Palette: React.FC<PalettePropTypes> = (props) => {
     const { setVisibleStatus } = props;
 
     const { currentPaletteData, isPaletteVisible } = useAppSelector(state => state.paletteSlice);
-    // 
+
     return (
         <div className="palette">
             <div className="palette__wrapper">
                 {
-                    isPaletteVisible
-                        ?
-                        <>
-                            {currentPaletteData.map(item => {
-                                return (
-                                    <PaletteTemplate
-                                        key={item.id}
-                                        {...item}
+                    isPaletteVisible &&
+                    <>
+                        {currentPaletteData.map(item => {
+                            return (
+                                <PaletteTemplate
+                                    key={item.id}
+                                    {...item}
 
-                                        setVisibleStatus={setVisibleStatus}
-                                    />
-                                );
-                            })}
-                        </>
-                        :
-                        <></>
+                                    setVisibleStatus={setVisibleStatus}
+                                />
+                            );
+                        })}
+                    </>
                 }
             </div>
         </div>
