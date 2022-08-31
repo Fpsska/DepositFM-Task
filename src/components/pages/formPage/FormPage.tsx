@@ -10,7 +10,7 @@ import Preloader from '../../common/Preloader/Preloader';
 const FormPage: React.FC = () => {
 
     const { isPreloaderVisible } = useAppSelector(state => state.formSlice);
-    // 
+    
     return (
         <div className="form-page">
             <div className="form-page__wrapper">

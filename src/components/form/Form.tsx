@@ -30,16 +30,18 @@ const Form: React.FC = () => {
         isPreloaderVisible
     } = useAppSelector(state => state.formSlice);
 
-    const dispatch = useAppDispatch();
-
-    const form = useRef<HTMLFormElement>(null!);
-    // 
-    const { request } = usePostRequest();
     const inputName = useInput('', isImageSelected, { emptyValue: true, minLength: 3, maxLength: 10 });
     const inputSurname = useInput('', isImageSelected, { emptyValue: true, minLength: 4, maxLength: 11 });
     const inputPatronymic = useInput('', isImageSelected, { emptyValue: true, minLength: 5, maxLength: 14 });
     const imageInput = useInput('', isImageSelected, { emptyImage: true });
-    // 
+
+    const formRef = useRef<HTMLFormElement>(null!);
+
+    const { request } = usePostRequest();
+
+    const dispatch = useAppDispatch();
+
+
     const setNewImage = (e: any): void => { // React.FormEvent<HTMLInputElement> / React.FormEvent<HTMLInputElement> / React.ChangeEvent<HTMLInputElement>
         const fileReader = new FileReader();
 
@@ -73,9 +75,9 @@ const Form: React.FC = () => {
     const deleteImage = (): void => {
         dispatch(setImageSelectedStatus(false));
     };
-    // 
+
     return (
-        <form ref={form} className="form" onSubmit={handleFormSubmit}>
+        <form ref={formRef} className="form" onSubmit={handleFormSubmit}>
             <div className="form__wrapper">
                 {formInputs.map(item => {
                     return (
@@ -94,9 +96,7 @@ const Form: React.FC = () => {
 
                     <div className="file__title">
                         <span className="file__text">Photo</span>
-                        {imageInput.emptyImageError
-                            ? <span className="file__warn">image is required</span>
-                            : <></>}
+                        {imageInput.emptyImageError && <span className="file__warn">image is required</span>}
                     </div>
 
                     <>

@@ -42,13 +42,7 @@ const navSlice = createSlice({
   reducers: {
     setNavLinkActiveStatus(state, action: PayloadAction<setNavLinkActiveStatusTypes>) {
       const { id, status } = action.payload;
-      state.navLinks.map(item => {
-        if (item.id === id) {
-          return item.isActive = status;
-        } else {
-          return item.isActive = false;
-        }
-      });
+      state.navLinks.map(item => item.id === id ? item.isActive = status : item.isActive = false);
     },
     setFormPageStatus(state, action: PayloadAction<boolean>) {
       state.isFormPage = action.payload;

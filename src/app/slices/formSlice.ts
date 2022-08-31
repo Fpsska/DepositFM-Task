@@ -68,7 +68,6 @@ const formSlice = createSlice({
         },
         setResponseInfo(state, action: PayloadAction<any>) { // { id: number, message: string, status: string }[]
             state.currentResponseInfo = action.payload;
-            // state.currentResponseInfo.splice(0, 1, action.payload);
         }
     }
 });

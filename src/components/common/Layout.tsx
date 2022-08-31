@@ -13,7 +13,7 @@ import Preloader from './Preloader/Preloader';
 const Layout: React.FC = () => {
 
     const { isPreloaderVisible } = useAppSelector(state => state.formSlice);
-    // 
+
     return (
         <div className="page">
             <Header />

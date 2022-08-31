@@ -27,10 +27,11 @@ const PalettePage: React.FC = () => {
     const [limit, setLimit] = useState(false);
     const [initaialColor, setColor] = useState('#ccc');
 
+    const { refEl, isVisible, setVisibleStatus } = useAreaHandler({ initialStatus: false });
+
     const dispatch = useAppDispatch();
 
-    const { refEl, isVisible, setVisibleStatus } = useAreaHandler({ initialStatus: false });
-    // 
+
     const addPaletteTemplate = useCallback((): void => {
         dispatch(addCurrentPaletteTemplate(
             {
@@ -51,7 +52,7 @@ const PalettePage: React.FC = () => {
         currentPaletteData.length >= 8 ? setLimit(true) : setLimit(false); // disable ADD button
         currentPaletteData.length <= 0 && setVisibleStatus(false); // hide ColorPicker
     }, [currentPaletteData]);
-    // 
+    
     return (
         <div className="palette-page">
             <div className="palette-page__wrapper">

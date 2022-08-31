@@ -17,7 +17,8 @@ const Footer: React.FC = () => {
     } = useAppSelector(state => state.formSlice);
 
     const dispatch = useAppDispatch();
-    // 
+
+
     useEffect(() => {
         dispatch(setResponseInfo(
             {
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
         )
         );
     }, []);
-    // 
+
     return (
         <footer className="footer">
             <div className="footer__wrapper">
