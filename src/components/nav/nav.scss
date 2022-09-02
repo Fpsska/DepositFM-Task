@@ -1,10 +1,12 @@
 .nav {
     &__menu {
         display: flex;
+
         :not(:last-child) {
             margin: 0 40px 0 0;
         }
     }
+
     &__link {
         color: #fff;
         font-size: 17px;

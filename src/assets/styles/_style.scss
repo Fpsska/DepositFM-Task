@@ -48,10 +48,12 @@ button {
     flex-direction: column;
     position: relative;
     overflow-y: scroll;
+
     &::-webkit-scrollbar {
         width: 0px;
         height: 0px;
     }
+
     &__preloader {
         width: 100%;
         height: 100%;
@@ -70,9 +72,11 @@ button {
 .form-page__wrapper {
     display: flex;
 }
+
 .form-page__form {
     flex: 0 0 27.5%;
 }
+
 .form-page__preloader {
     flex: 1 0 0;
     display: flex;
@@ -83,9 +87,11 @@ button {
 .header {
     flex: 0 0 auto;
 }
+
 .main {
     flex: 1 0 auto;
 }
+
 .footer {
     flex: 0 0 auto;
 }
