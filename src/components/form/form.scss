@@ -11,11 +11,7 @@
         justify-content: center;
 
         &:not(:last-child) {
-            margin: 0 0 14px 0;
-        }
-
-        :not(:last-child) {
-            margin: 0 0 5px 0;
+            margin: 0 0 15px 0;
         }
     }
 
@@ -52,6 +48,7 @@
     &__title {
         display: flex;
         align-items: center;
+        margin: 0 0 5px 0;
 
         :not(:last-child) {
             margin: 0 10px 0 0;
@@ -59,7 +56,6 @@
     }
 
     &__label {
-        padding: 0 0 0 15px;
         font-size: 13px;
         font-weight: 700;
         line-height: 22px;
@@ -124,7 +120,6 @@
 .file {
     &__text {
         // +mixin
-        padding: 0 0 0 15px;
         font-size: 13px;
         font-weight: 700;
         line-height: 22px;
@@ -176,6 +171,7 @@
     &__title {
         display: flex;
         align-items: center;
+        margin: 0 0 5px 0;
 
         :not(:last-child) {
             margin: 0 10px 0 0;
@@ -203,7 +199,6 @@
 
 .file__image.file__image {
     height: 110px;
-    -o-object-fit: contain;
     object-fit: contain;
     margin: 0;
 }

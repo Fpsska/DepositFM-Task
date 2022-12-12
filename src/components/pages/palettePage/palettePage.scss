@@ -5,28 +5,28 @@
     &__wrapper {
         height: 100%;
         display: flex;
+        gap: 20px;
         justify-content: space-between;
     }
 
     &__workplace {
-        flex: 0 0 27.5%;
+        flex: 1 1 30%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
     &__preview {
-        flex: 0;
-        flex: auto;
+        flex: 0 0 256px;
+        height: 256px;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: auto;
     }
 
     &__image {
-        width: 256px;
-        height: 256px;
-        -o-object-fit: cover;
+        max-width: 100%;
         object-fit: cover;
     }
 
